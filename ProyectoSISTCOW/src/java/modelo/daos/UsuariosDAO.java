@@ -246,12 +246,12 @@ public class UsuariosDAO {
         return msgSalida;
     }
 
-    public String actualizarContraseña(UsuariosDTO Usuarios) {
+    public String actualizarContraseña(String newclave, long cc) {
         try {
 
             pstmt = cnn.prepareStatement("UPDATE usuarios SET Clave=? WHERE CC=?");
-            pstmt.setString(1, Usuarios.getClave());
-            pstmt.setLong(2, Usuarios.getCC());
+            pstmt.setString(1, newclave); // Modificado
+            pstmt.setLong(2, cc);         // Modificado
 
             per = pstmt.executeUpdate();
             if (per > 0) {
@@ -340,4 +340,5 @@ public class UsuariosDAO {
         }
         return filtroPersonas;
     }
+    
 }

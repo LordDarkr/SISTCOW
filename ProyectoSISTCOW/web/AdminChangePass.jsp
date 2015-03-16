@@ -4,9 +4,16 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="Dtos.UsuariosDTO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
     <head>
+         <%
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setDateHeader("Expires", 0);
+        %>
         <title>Sistcoweb</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,6 +32,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 </head>
 <body>
+    <%
+            HttpSession misesion = request.getSession(false);
+
+            if (misesion.getAttribute("admLogueado") == null) {
+                response.sendRedirect("login.jsp?msg= Debe iniciar sesión para acceder");
+
+            } else {
+                UsuariosDTO pr = new UsuariosDTO();
+                pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+        %>
     <div class="header-top">
         <div class="wrap"> 
             <div class="header-top-left">
@@ -92,16 +109,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <center> <h3 class="m_3"> </h3></center>
         <center>
             <div class="col_1_of_CHP span_1_of_CHP">
-                <form action="" method="post" name="login" id="login-form">
+                <form action="ChangePassword?idadm=<%=pr.getCC()%>" method="post" name="login" id="login-form">
                     <fieldset class="input">
                         <label for="Actual_Pass">Contrase&ntilde;a Actual</label>
                         <input id="Actual_Pass" type="password" name="Actual_Pass" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
                         <label for="New Pass1">Contrase&ntilde;a </label>
-                        <input id="New Pass1" type="password" name="password" class="inputbox" size="18" autocomplete="off"REQUIRED>
+                        <input id="New Pass1" type="password" name="newpass1" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
                         <label for="New Pass2">Repita la Nueva Contrase&ntilde;a</label>
-                        <input id="New Pass2" type="password" name="password" class="inputbox" size="18" autocomplete="off"REQUIRED>
+                        <input id="New Pass2" type="password" name="newpass2" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
                         <div class="remember">
                             <p id="login-form-remember">
@@ -138,7 +155,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="footer-bottom">
         <div class="wrap">
             <div class="copy">
-                <p>� 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+                <p>ï¿½ 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
             </div>
             <div class="f-list2">
                 <ul>
@@ -150,5 +167,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
 </div>
+<%}%>
 </body>
 </html>

@@ -123,6 +123,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </div>
                             </fieldset>
                         </form>
+                        <%
+                        if (request.getParameter("msg")!=null){
+                            out.print(request.getParameter("msg"));
+                        }
+                        %>
                     </div>
                 </div>
             </div>
