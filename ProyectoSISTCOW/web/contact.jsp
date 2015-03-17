@@ -63,29 +63,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			</div>
 		</div>
-	   <div class="header-bottom-right">
-         <div class="search">	  
-				<input type="text" name="s" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-				<input type="submit" value="Subscribe" id="submit" name="submit">
-				<div id="response"> </div>
-		 </div>
-	  <div class="tag-list">
-			</li>
-		</ul>
-		<ul class="icon1 sub-icon1 profile_img">
-			<li><a class="active-icon c2" href="#"> </a>
-				<ul class="sub-icon1 list">
-                                    <li><h3>Ning&uacute;n producto</h3><a href=""></a></li>
-					<li><p>Escoge el producto que desees <a href="Login.jsp">Primero Registrate o Ingresa a tu Cuenta</a></p></li>
-				</ul>
-			</li>
-		</ul>
-	    <ul class="last"><li><a href="#">Carrito(0)</a></li></ul>
-	  </div>
-    </div>
+	  
      <div class="clear"></div>
      </div>
-	</div>
     <div class="login">
        <div class="wrap">
 	    <ul class="breadcrumb breadcrumb__t">
@@ -95,22 +75,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		   <div class="content-top">
       <form method="post" action="contact-post.html">
 					<div class="to">
-                     	<input type="text" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
-					 	<input type="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left: 10px"REQUIRED>
+                     	<input type="text" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" style="margin-left: 10px" REQUIRED>
+					 	
+                        <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left: 10px" REQUIRED>
 					</div>
 					<div class="to">
                      
-					 	<input type="text" class="text" value="Asunto" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Asunto';}" style="margin-left: 10px"REQUIRED>
+					 	<input type="text" class="text" value="Asunto" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Asunto';}" style="margin-left: 10px" REQUIRED>
 					</div>
 					<div class="text">
-	                   <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}"REQUIRED>Mensaje:</textarea>
+	                   <textarea value="Message:" onfocus=" this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}" style="margin-left: 10px" REQUIRED >Mensaje:</textarea>
 	                </div>
 	                <div class="submit">
-	               		<input type="submit" value="Enviar">
+	               		<input type="submit" value="Enviar" style="margin-left: 10px">
 	                </div>
                </form>
                 <div class="map">
-					<iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
+					<iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">Ubicacion</a></small>
 				</div>
             </div>
        </div> 

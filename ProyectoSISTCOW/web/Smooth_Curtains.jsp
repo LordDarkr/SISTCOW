@@ -77,8 +77,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div id="response"> </div>
 		 </div>
 	  <div class="tag-list">
-			</li>
-		</ul>
 		<ul class="icon1 sub-icon1 profile_img">
 			<li><a class="active-icon c2" href="#"> </a>
 				<ul class="sub-icon1 list">

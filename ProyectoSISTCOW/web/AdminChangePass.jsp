@@ -28,7 +28,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $(".megamenu").megamenu();
             });</script>
         <script src="web/js/jquery.easydropdown.js"></script>
-    </script>		
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 </head>
 <body>

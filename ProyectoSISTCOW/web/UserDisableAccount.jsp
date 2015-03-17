@@ -67,26 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			</div>
 		</div>
-	   <div class="header-bottom-right">
-         <div class="search">	  
-				<input type="text" name="s" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-				<input type="submit" value="Subscribe" id="submit" name="submit">
-				<div id="response"> </div>
-		 </div>
-	  <div class="tag-list">
-			</li>
-		</ul>
-		<ul class="icon1 sub-icon1 profile_img">
-			<li><a class="active-icon c2" href="#"> </a>
-				<ul class="sub-icon1 list">
-                                    <li><h3>Ning&uacute;n producto</h3><a href=""></a></li>
-					<li><p>Escoge el producto que desees <a href="Login.jsp">Primero Registrate o Ingresa a tu Cuenta</a></p></li>
-				</ul>
-			</li>
-		</ul>
-	    <ul class="last"><li><a href="#">Carrito(0)</a></li></ul>
-	  </div>
-    </div>
+	   
      <div class="clear"></div>
      </div>
 <div class="mens">    
