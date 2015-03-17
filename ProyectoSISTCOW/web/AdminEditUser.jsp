@@ -91,46 +91,88 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 <div class="mens">    
 
-  <div class="main">
-      <%
-                        UsuariosDAO uDao = new UsuariosDAO();
-                        ArrayList<UsuariosDTO> usuarios = new ArrayList();
-                        usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
+                    <div class="clear"></div>
+                </div>
+                <div class="cssmenu">
+                    <ul>
+                        <li class="active"><a href="login.jsp">Cuenta</a></li> |
+                        <li><a href="checkout.jsp">Carrito</a></li> |
+                        <li><a href="login.jsp">Iniciar Sesion</a></li> |
+                        <li><a href="register.jsp">Registrarse</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="wrap">
+                <div class="header-bottom-left">
+                    <div class="logo">
+                        <a href="index.html"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
+                    </div>
+                    <div class="menu">
+                        <ul class="megamenu skyblue">
+                            <li class="active grid"><a href="Smooth_Curtains.jsp">Cortinas Lisas	</a></li>
+                            <li><a class="color4" href="Roman_Curtains.jsp">Cortinas Romanas</a>
 
-                    %>
-  
-  <center>
-                    
-      <br/>
-      <center> <h3 class="m_3">Editar Usuario</h3></center>
-        <center> <h3 class="m_3"> </h3></center>
-     <center>
-     <div class="col_1_of_CHP span_1_of_CHP">
-                    
-     <form action="" method="post" name="login" id="login-form">
-		 <%                for (UsuariosDTO u : usuarios) {
+                            </li>				
+                            <li><a class="color5" href="Japanese_Panels.jsp">Paneles Japoneses</a>
+                            </li>
+                            <li><a class="color6" href="Shutters.jsp">Persianas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
+            <div class="clear"></div>
+        </div>
 
-                                %>				  <fieldset class="input">
-						 
-              <label for="nom">Nombre</label>
- <input  type="text" name="nom" class="inputbox" size="18" placeholder="<%=u.getNombres()%>" REQUIRED>
-						    </p>
- <label for="NewSecondName">Apellido </label>
- <input type="text" name="ape" placeholder="<%=u.getApellidos()%>" class="inputbox" size="18" REQUIRED>
-						    </p>
- <label for="mail">Correo</label>
- <input type="email" name="mail" placeholder="<%=u.getCorreoElectronico()%>" class="inputbox" size="18" REQUIRED>
-						    </p>
-	<div class="remember">
-	 <p id="login-form-remember">
-							   </p>
-<input type="submit" name="edit"  class="button" value="Modificar">
-<div class="clear"></div>
-							 </div>
-						  </fieldset>
-						 </form>
-                          <%
+        <div class="mens">    
+
+            <div class="main">
+                <%
+                    HttpSession misesion = request.getSession(false);
+
+                    if (misesion.getAttribute("admLogueado") == null) {
+                        response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
+
+                    } else {
+                        UsuariosDTO udto = null;
+                        UsuariosDTO us = null;
+                        UsuariosDAO udao = new UsuariosDAO();
+                        us = (UsuariosDTO) misesion.getAttribute("admLogueado");
+                        us = udao.ListarUnUsuario(udto.getCC());
+                %>
+
+                <center>
+
+                    <br/>
+                    <center> <h3 class="m_3">Editar Usuario</h3></center>
+                    <center> <h3 class="m_3"> </h3></center>
+                    <center>
+                        <div class="col_1_of_CHP span_1_of_CHP">
+
+                            <form action="" method="post" name="login" id="login-form">	  <fieldset class="input">
+
+                                    <label for="nom">Nombre</label>
+                                    <input  type="text" name="nom" class="inputbox" size="18" placeholder="<%=us.getNombres()%>" REQUIRED>
+                                    </p>
+                                    <label for="NewSecondName">Apellido </label>
+                                    <input type="text" name="ape" placeholder="<%=us.getApellidos()%>" class="inputbox" size="18" REQUIRED>
+                                    </p>
+                                    <label for="mail">Correo</label>
+                                    <input type="email" name="mail" placeholder="<%=us.getCorreoElectronico()%>" class="inputbox" size="18" REQUIRED>
+                                    </p>
+                                    <div class="remember">
+                                        <p id="login-form-remember">
+                                        </p>
+                                        <input type="submit" name="edit"  class="button" value="Modificar">
+                                        <div class="clear"></div>
+                                    </div>
+                                </fieldset>
+
+                            </form>
+                            <%
                                 }
                             %>
            </div>                         
