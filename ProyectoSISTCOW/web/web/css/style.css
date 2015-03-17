@@ -895,6 +895,45 @@ body{
 	float:left;
 	margin:6px 20px 0 0;
 }
+.search1 {
+	background:#fff;
+	border: 1px solid #ddd;
+	margin:6px 20px 0 0;
+	float:auto;
+	width:15%;
+}
+.search1 input[type="text"] {
+	border: none;
+	outline: none;
+	background: none;
+	font-size:0.85em;
+	font-family: 'Exo 2', sans-serif;
+	color:#777;
+	width:130px;
+	padding:7px;
+	-webkit-apperance:none;
+	margin:0;
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-ms-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+}
+.search1 input[type="text"]:focus{
+	width:150px;
+}
+.search1 input[type="submit"] {
+	border: none;
+	text-indent: -9999px;
+	outline:none;
+	cursor: pointer;
+	background: url("../images/search.png") no-repeat 0px 3px; 
+	width:30px;
+	height:25px;
+	padding:8px;
+}	
+.search1 input[type="submit"]:active {
+	position:relative;
+}
 .search input[type="text"] {
 	border: none;
 	outline: none;
