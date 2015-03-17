@@ -36,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             HttpSession misesion = request.getSession(false);
 
             if (misesion.getAttribute("admLogueado") == null) {
-                response.sendRedirect("login.jsp?msg= Debe iniciar sesión para acceder");
+                response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
 
             } else {
                 UsuariosDTO pr = new UsuariosDTO();

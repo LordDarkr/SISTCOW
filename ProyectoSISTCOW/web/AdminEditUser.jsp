@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             HttpSession misesion = request.getSession(false);
 
             if (misesion.getAttribute("admLogueado") == null) {
-                response.sendRedirect("login.jsp?msg= Debe iniciar sesión para acceder");
+                response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
 
             } else {
                 UsuariosDTO pr = new UsuariosDTO();
@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="cssmenu">
                     <ul>
                         <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li>
-                        <li><a href="logout.jsp">Cerrar Sesión</a></li>
+                        <li><a href="logout.jsp">Cerrar SesiÃ³n</a></li>
                     </ul>
                 </div>
 			<div class="clear"></div>
@@ -203,7 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="footer-bottom">
 			<div class="wrap">
 	                <div class="copy">
-			           <p>ï¿½ 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+			           <p>Ã¯Â¿Â½ 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
 		            </div>
 		       <div class="f-list2">
 				<ul>
