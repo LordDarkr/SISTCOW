@@ -25,7 +25,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="web/js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="web/js/jquery.easydropdown.js"></script>
-</script>		
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 </head>
 <body>
@@ -79,6 +78,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="mens">    
 
   <div class="main">
+      <%
+                        UsuariosDAO uDao = new UsuariosDAO();
+                        ArrayList<UsuariosDTO> usuarios = new ArrayList();
+                        usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
+
+                    %>
   
   <center>
                     
@@ -87,15 +92,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <center> <h3 class="m_3"> </h3></center>
      <center>
      <div class="col_1_of_CHP span_1_of_CHP">
-      <%
-                        UsuariosDAO uDao = new UsuariosDAO();
-                        ArrayList<UsuariosDTO> usuarios = new ArrayList();
-                        usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
-
-                    %>
                     
      <form action="" method="post" name="login" id="login-form">
-						  <fieldset class="input">
+		 <%                for (UsuariosDTO u : usuarios) {
+
+
+                                %>				  <fieldset class="input">
 						 
               <label for="nom">Nombre</label>
  <input  type="text" name="nom" class="inputbox" size="18" placeholder="<%=u.getNombres()%>" REQUIRED>
