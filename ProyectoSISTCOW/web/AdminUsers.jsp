@@ -10,6 +10,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
     <head>
+        <%
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setDateHeader("Expires", 0);
+        %>
         <title>Sistcoweb</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,6 +56,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     </head>
     <body>
+        <%
+            HttpSession misesion = request.getSession(false);
+
+            if (misesion.getAttribute("admLogueado") == null) {
+                response.sendRedirect("login.jsp?msg= Debe iniciar sesión para acceder");
+
+            } else {
+                UsuariosDTO pr = new UsuariosDTO();
+                pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+        %>
         <div class="header-top">
             <div class="wrap"> 
                 <div class="header-top-left">
@@ -66,10 +81,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="cssmenu">
                     <ul>
-                        <li class="active"><a href="login.jsp">Cuenta</a></li> |
-                        <li><a href="checkout.jsp">Carrito</a></li> |
-                        <li><a href="login.jsp">Iniciar Sesion</a></li> |
-                        <li><a href="register.jsp">Registrarse</a></li>
+                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li>
+                        <li><a href="logout.jsp">Cerrar Sesión</a></li>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -254,5 +267,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
         </div>
+                            <%}%>
     </body>
 </html>
