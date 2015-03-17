@@ -79,7 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="wrap">
                 <div class="header-bottom-left">
                     <div class="logo">
-                        <a href="index.html"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
+                        <a href="index.jsp"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
                     </div>
                     <div class="menu">
                         <ul class="megamenu skyblue">
