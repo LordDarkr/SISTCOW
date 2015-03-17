@@ -27,13 +27,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- submenu -->
         <script type="text/javascript">
             function aExcel()
-            vEcxel= window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");
-        </script>
+                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");        </script>
+
+        <script type="text/javascript" src="web/js/paging.js"></script>
+
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
             });</script>
         <script src="web/js/jquery.easydropdown.js"></script>		
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
+        <!-- filtro multicriterio -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="web/js/jquery_table.js"></script>
+        <!-- JS QUE SE ENCARGA AL PRINCIPIO UNA VEZ LEIDO EL HTML EL CLIENTE (como el evento onload del body) -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#results').buscoloquemesaledelospeones('inputFiltro');
+            });
+        </script>
+        <!-- ------- -->
+
     </head>
     <body>
        	<div class="header-top">
@@ -80,7 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
             <div class="header-bottom-right">
-              <div class="tag-list"> </div>
+                <div class="tag-list"> </div>
             </div>
             <div class="clear"></div>
         </div>
@@ -89,23 +102,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="main">
 
                 <center>
-                <div id="mbmcpebul_wrapper" style="max-width: 944px;">
-                    <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
-                        <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                        <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                        <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
-                        <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                        <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
-                        <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                        <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
-                    </ul>
-                </div>
-            </center> 
+                    <div id="mbmcpebul_wrapper" style="max-width: 944px;">
+                        <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+                            <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
+                            <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
+                            <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
+                            <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
+                            <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
+                            <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
+                            <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
+                        </ul>
+                    </div>
+                </center> 
 
                 </br>
                 <center>
                     <h3 class="m_3">Reportes</h3></center>
                 <center>
+                    <div class="search1">	  
+                        <input type="text" id="inputFiltro" name="buscar" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Buscar';
+                                }">
+                        <input type="submit" value="#" id="submit" name="submit">
+
+                    </div> 
                     </br>
                     <!-- submenu -->
                     <div id="mbmcpebul_wrapper" style="max-width: 586px;">
@@ -121,42 +141,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         Ventas = (ArrayList<VentaDTO>) VDao.listarVentasProducto();
 
                     %>
-                    <table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+                    <form action="" method="get" enctype="application/x-www-form-urlencoded">
+                        <table cellspacing='0' id="results" > <!-- cellspacing='0' is important, must stay -->
 
-                        <!-- Table Header -->
-                        <thead>
+                            <!-- Table Header -->
+                            <thead>
 
-                            <tr>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th>Tipo de Cortina</th>
-                                <th>Tela</th>
-                                <th>Color</th>
-                                <th>Estado de Venta</th>
-                            </tr>
-                        </thead>
-                        <!-- Table Header -->
+                                <tr id="titulo">
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Tipo de Cortina</th>
+                                    <th>Tela</th>
+                                    <th>Color</th>
+                                    <th>Estado de Venta</th>
+                                </tr>
+                            </thead>
+                            <!-- Table Header -->
 
-                        <!-- Table Body -->
-                        <tbody>
-                            <%                for (VentaDTO v : Ventas) {
+                            <!-- Table Body -->
+                            <tbody>
+                                <%                for (VentaDTO v : Ventas) {
+                                %>
+                                <tr>
+                                    <td><%=v.getProducto()%></td>
+                                    <td><%=v.getCantidad()%></td>
+                                    <td><%=v.getTipodeCortina()%></td>
+                                    <td><%=v.getTela()%></td>
+                                    <td><%=v.getColor()%></td>
+                                    <td><%=v.getEstadodeVenta()%></td>
+                                </tr>    
+
+                            </tbody>
+                            <!-- Table Body -->
+
+                            <%
+                                }
                             %>
-                            <tr>
-                                <td><%=v.getProducto()%></td>
-                                <td><%=v.getCantidad()%></td>
-                                <td><%=v.getTipodeCortina()%></td>
-                                <td><%=v.getTela()%></td>
-                                <td><%=v.getColor()%></td>
-                                <td><%=v.getEstadodeVenta()%></td>
-                            </tr>    
+                        </table>
+                    </form>
 
-                        </tbody>
-                        <!-- Table Body -->
+                    <div id="pageNavPosition" class="active"></div>
 
-                        <%
-                            }
-                        %>
-                    </table>
+                    <script type="text/javascript"><!--
+                    var pager = new Pager('results', 4);
+                        pager.init();
+                        pager.showPageNav('pager', 'pageNavPosition');
+                        pager.showPage(1);
+                        //--></script>
 
                     </br>
 

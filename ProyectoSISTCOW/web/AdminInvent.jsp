@@ -19,17 +19,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link rel="stylesheet" href="web/css/mbcsmbmcp.css" type="text/css" />
         <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
         <script type="text/javascript" src="web/js/jquery1.min.js"></script>
+        <script type="text/javascript" src="web/js/paging.js"></script>
         <!-- start menu -->
         <link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
         <script type="text/javascript" src="web/js/megamenu.js"></script>
         <script type="text/javascript">
             function aExcel()
-                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");        </script>
+                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");</script>
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
         }
         )
         ;</script>
+
+        <!-- filtro multicriterio -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="web/js/jquery_table.js"></script>
+        <!-- JS QUE SE ENCARGA AL PRINCIPIO UNA VEZ LEIDO EL HTML EL CLIENTE (como el evento onload del body) -->
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#results').buscoloquemesaledelospeones('inputFiltro');
+        });
+        </script>
+        <!-- ------- -->
         <script src="web/js/jquery.easydropdown.js"></script>
 
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
@@ -97,56 +109,82 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </center> 
 
+
                 </br>
+
+
                 <center>
                     <h3 class="m_3">Inventario</h3></center>
+                </br>
                 <center>
+                    <div class="search1">	  
+                        <input type="text" id="inputFiltro" name="buscar" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                this.value = 'Buscar';
+                            }">
+                        <input type="submit" value="#" id="submit" name="submit">
+
+                    </div> 
                     <%
                         InventarioDAO iDao = new InventarioDAO();
                         ArrayList<ListarInventarioDTO> ListarInventario = new ArrayList();
                         ListarInventario = (ArrayList<ListarInventarioDTO>) iDao.listarInventario();
 
                     %>
-                    <table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+                    <form action="" method="get" enctype="application/x-www-form-urlencoded">
 
-                        <!-- Table Header -->
-                        <thead>
-                            <tr>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Cantidad</th>
-                                <th>Tipo de Cortina</th>
-                                <th>Tipo de Tela</th>
-                                <th>Color</th>
-                                <th>Modificar</th>
-                            </tr>
-                        </thead>
-                        <!-- Table Header -->
+                        <table cellspacing='0' id="results"> <!-- cellspacing='0' is important, must stay -->
 
-                        <!-- Table Body -->
-                        <tbody>
-                            <%                for (ListarInventarioDTO i : ListarInventario) {
+                            <!-- Table Header -->
+                            <thead >
+                                <tr id="titulo">
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Tipo de Cortina</th>
+                                    <th>Tipo de Tela</th>
+                                    <th>Color</th>
+                                    <th>Modificar</th>
+                                </tr>
+                            </thead>
+                            <!-- Table Header -->
+
+                            <!-- Table Body -->
+                            <tbody>
+                                <%                for (ListarInventarioDTO i : ListarInventario) {
 
 
-                            %>
-                            <tr>
-                                <td><%=i.getIdProducto()%></td>
-                                <td><%=i.getNombreProducto()%></td>
-                                <td><%=i.getCantidad()%></td>
-                                <td><%=i.getTipoCortina()%></td>
-                                <td><%=i.getTipoTela()%></td>
-                                <td><%=i.getColor()%></td>
+                                %>
+                                <tr>
+                                    <td><%=i.getIdProducto()%></td>
+                                    <td><%=i.getNombreProducto()%></td>
+                                    <td><%=i.getCantidad()%></td>
+                                    <td><%=i.getTipoCortina()%></td>
+                                    <td><%=i.getTipoTela()%></td>
+                                    <td><%=i.getColor()%></td>
 
-                            </tr><!-- Table Row -->
+                                </tr><!-- Table Row -->
 
-                            <%
-                                }
-                            %>
+                                <%
+                                    }
+                                %>
 
-                        </tbody>
-                        <!-- Table Body -->
+                            </tbody>
+                            <!-- Table Body -->
 
-                    </table>
+                        </table>
+
+                    </form>
+
+                    <div id="pageNavPosition" class="active"></div>
+
+                    <script type="text/javascript"><!--
+                    var pager = new Pager('results', 4);
+                    pager.init();
+                    pager.showPageNav('pager', 'pageNavPosition');
+                    pager.showPage(1);
+                    //--></script>
+                    </br>
+                    </br>
                     <a href="#" class="redbtn">Exportar a PDF</a> </br> 
                     </br>
                     </br>

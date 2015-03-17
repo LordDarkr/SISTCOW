@@ -119,7 +119,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <center>
                     <h3 class="m_3">Administrar Usuarios</h3></center>
                 </br>
-                </br>  
+                
                 <center>
                     <center>       <div class="search1">	  
                             <input type="text" id="inputFiltro" name="buscar" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
