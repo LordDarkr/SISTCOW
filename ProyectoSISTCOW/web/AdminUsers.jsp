@@ -22,14 +22,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
         <script type="text/javascript" src="web/js/megamenu.js"></script>
         <script>
-         function aExcel()
-                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");    
-         </script>
+<!-- excel -->
+            function aExcel()
+                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");</script>
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
-            });</script>
+        }
+        )
+        ;</script>
         <script src="web/js/jquery.easydropdown.js"></script>
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
+
+
+        <!-- filtro multicriterio -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="web/js/jquery_table.js"></script>
+        <!-- JS QUE SE ENCARGA AL PRINCIPIO UNA VEZ LEIDO EL HTML EL CLIENTE (como el evento onload del body) -->
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#results').buscoloquemesaledelospeones('inputFiltro');
+        });
+        </script>
+        <!-- ------- -->
+
     </head>
     <body>
         <div class="header-top">
@@ -78,138 +93,147 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="header-bottom-right"></div>
             <div class="clear"></div>
         </div>
-    </div>
-    <div class="mens">    
+        <div class="mens">    
 
-        <div class="main">
+            <div class="main">
 
-            <center>
-                <div id="mbmcpebul_wrapper" style="max-width: 944px;">
-                    <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
-                        <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                        <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                        <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
-                        <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                        <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
-                        <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                    </ul>
-                </div>
-            </center> 
-
-            </br>
-            <center>
-                <h3 class="m_3">Administrar Usuarios</h3></center>
-            <center>
-
-                <%
-                    UsuariosDAO uDao = new UsuariosDAO();
-                    ArrayList<UsuariosDTO> usuarios = new ArrayList();
-                    usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
-
-                %>
-                <table cellspacing='0' id="results"> <!-- cellspacing='0' is important, must stay -->
-
-                    <!-- Table Header -->
-                    <thead>
-                        <tr>
-                            <th> <strong>   Documento </strong>  </th> 
-                            <th> <strong>   Nombre </strong>  </th> 
-                            <th> <strong>  Apellido </strong>  </th> 
-                            <th> <strong>    Correo   </strong> </th> 
-                            <th> <strong>    Tipo-Usuario   </strong> </th> 
-                            <th> <strong>    Eliminar   </strong> </th> 
-                            <th> <strong>Modificar</strong></th>
-
-                        </tr>
-                    </thead>
-                    <!-- Table Header -->
-
-                    <!-- Table Body -->
-                    <tbody>
-                        <%                for (UsuariosDTO u : usuarios) {
-
-
-                        %>
-                        <tr>
-                            <td><%=u.getCC()%></td>
-                            <td><%=u.getNombres()%></td>
-                            <td><%=u.getApellidos()%></td> 
-                            <td><%=u.getCorreoElectronico()%></td> 
-                            <td><%=u.getTipoUsuario()%></td>
-                            <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
-                            <td><a href="#modalcr1">Edit</a></td>
-                        </tr>
-                    <div id="modalcr1" class="modalmask">
-                        <div class="modalbox movedown">
-                            <a href="#close" title="Close" class="close">X</a>
-                            <p><div class="inner_content clearfix">
-                                <form id="formmodificar" method="post">
-
-                                    <label for="nom">Nombre</label>
-                                    <input type="text" name="nom" placeholder="<%=u.getNombres()%>"/>
-                                    </br>
-                                    <label for="ape">Apellido</label>
-                                    <input type="text" name="ape" placeholder="<%=u.getApellidos()%>"/>
-                                    </br>
-                                    <label for="mail">Correo</label>
-                                    <input type="text" name="mail" placeholder="<%=u.getCorreoElectronico()%>"/>
-                                    </br>
-                                    <input type="submit" name="edit" value="Modificar"/>
-
-                                </form>					
-                            </div></p>
-
-                        </div>
+                <center>
+                    <div id="mbmcpebul_wrapper" style="max-width: 944px;">
+                        <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+                            <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
+                            <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
+                            <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
+                            <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
+                            <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
+                            <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
+                            <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
+                        </ul>
                     </div>
-                    <%
-                        }
-                    %>
-                    </tbody>
-                    <!-- Table Body -->
+                </center> 
 
-                </table>
-                <div id="pageNavPosition"></div>
-                <a href="#" class="redbtn">Exportar a PDF</a> </br> 
+                </br>
+                <center>
+                    <h3 class="m_3">Administrar Usuarios</h3></center>
+                </br>
+                </br>  
+                <center>
+                    <center>       <div class="search1">	  
+                            <input type="text" id="inputFiltro" name="s" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Buscar';
+                                }">
+                            <input type="submit" value="#" id="submit" name="submit">
+
+                        </div>   </center>
+
+                    <%
+                        UsuariosDAO uDao = new UsuariosDAO();
+                        ArrayList<UsuariosDTO> usuarios = new ArrayList();
+                        usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
+
+                    %>
+                    <table cellspacing='0' id="results"> <!-- cellspacing='0' is important, must stay -->
+
+                        <!-- Table Header -->
+                        <thead>
+                            <tr id="titulo">
+                                <th> <strong>Documento</strong>  </th> 
+                                <th> <strong>Nombre</strong>  </th> 
+                                <th> <strong>Apellido</strong>  </th> 
+                                <th> <strong>Correo</strong> </th> 
+                                <th> <strong>Tipo-Usuario</strong> </th> 
+                                <th> <strong>Eliminar</strong> </th> 
+                                <th> <strong>Modificar</strong></th>
+
+                            </tr>
+                        </thead>
+                        <!-- Table Header -->
+
+                        <!-- Table Body -->
+                        <tbody>
+                            <%                for (UsuariosDTO u : usuarios) {
+
+
+                            %>
+                            <tr>
+                                <td><%=u.getCC()%></td>
+                                <td><%=u.getNombres()%></td>
+                                <td><%=u.getApellidos()%></td> 
+                                <td><%=u.getCorreoElectronico()%></td> 
+                                <td><%=u.getTipoUsuario()%></td>
+                                <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
+                                <td><a href="#modalcr1">Edit</a></td>
+                            </tr>
+                        <div id="modalcr1" class="modalmask">
+                            <div class="modalbox movedown">
+                                <a href="#close" title="Close" class="close">X</a>
+                                <p><div class="inner_content clearfix">
+                                    <form id="formmodificar" method="post">
+
+                                        <label for="nom">Nombre</label>
+                                        <input type="text" name="nom" placeholder="<%=u.getNombres()%>"/>
+                                        </br>
+                                        <label for="ape">Apellido</label>
+                                        <input type="text" name="ape" placeholder="<%=u.getApellidos()%>"/>
+                                        </br>
+                                        <label for="mail">Correo</label>
+                                        <input type="text" name="mail" placeholder="<%=u.getCorreoElectronico()%>"/>
+                                        </br>
+                                        <input type="submit" name="edit" value="Modificar"/>
+
+                                    </form>					
+                                </div></p>
+
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+                        </tbody>
+                        <!-- Table Body -->
+
+                    </table>
+                    <div id="pageNavPosition"></div>
+                    <a href="#" class="redbtn">Exportar a PDF</a> </br> 
                     </br>
                     </br>
                     <a href="ExcelReports/UsersReport.jsp" class="greenbtn">Exportar a Excel</a>
-            </center>
-            <div class="clear"></div>
+                </center>
+                <div class="clear"></div>
+            </div>
         </div>
-    </div>
-    <div class="footer">
-        <div class="footer-top">
-            <div class="wrap">
-                <div class="section group example">
-                    <div class="col_1_of_2 span_1_of_2">
-                        <ul class="f-list">
-                            <li><img src="web/images/2.png"><span class="f-text">Envios puerta a puerta</span><div class="clear"></div></li>
-                        </ul>
+        <div class="footer">
+            <div class="footer-top">
+                <div class="wrap">
+                    <div class="section group example">
+                        <div class="col_1_of_2 span_1_of_2">
+                            <ul class="f-list">
+                                <li><img src="web/images/2.png"><span class="f-text">Envios puerta a puerta</span><div class="clear"></div></li>
+                            </ul>
+                        </div>
+                        <div class="col_1_of_2 span_1_of_2">
+                            <ul class="f-list">
+                                <li><img src="web/images/3.png"><span class="f-text">Llamanos! 222-555-6666 </span><div class="clear"></div></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="col_1_of_2 span_1_of_2">
-                        <ul class="f-list">
-                            <li><img src="web/images/3.png"><span class="f-text">Llamanos! 222-555-6666 </span><div class="clear"></div></li>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="wrap">
+                    <div class="copy">
+                        <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+                    </div>
+                    <div class="f-list2">
+                        <ul>
+                            <li class="active"><a href="about.jsp">Nosotros</a></li> |
+                            <li><a href="contact.jsp">Contactanos</a></li> 
                         </ul>
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="wrap">
-                <div class="copy">
-                    <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
-                </div>
-                <div class="f-list2">
-                    <ul>
-                        <li class="active"><a href="about.jsp">Nosotros</a></li> |
-                        <li><a href="contact.jsp">Contactanos</a></li> 
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
 
-    </div>
-</body>
+        </div>
+    </body>
 </html>

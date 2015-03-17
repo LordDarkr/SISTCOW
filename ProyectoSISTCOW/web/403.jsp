@@ -27,15 +27,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    				      <select tabindex="4" class="dropdown">
 							<option value="" class="label" value="">Idioma :</option>
 							<option value="1">Ingles</option>
-                                                        <option value="2">Espa&Ncaron;ol</option>
+                                                        <option value="2">Espa&ncaron;ol</option>
 					  </select>
    				    </div>
    				   
    				    <div class="clear"></div>
    			 </div>
 			 <div class="cssmenu">
-				<ul>
-					<li class="active"><a href="login.jsp">Cuenta</a></li> |
+				<ul> 
+                                        <li class="active"><a href="login.jsp">Cuenta</a></li> |
 					<li><a href="checkout.jsp">Carrito</a></li> |
 					<li><a href="login.jsp">Iniciar Sesion</a></li> |
 					<li><a href="register.jsp">Registrarse</a></li>
