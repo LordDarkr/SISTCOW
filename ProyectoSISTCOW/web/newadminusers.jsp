@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Dtos.UsuariosDTO"%>
 <%@page import="modelo.daos.UsuariosDAO"%>
+
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -15,30 +16,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
-                <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
-
         <link rel="stylesheet" href="web/css/mbcsmbmcp.css" type="text/css" />
+        <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
         <script type="text/javascript" src="web/js/jquery1.min.js"></script>
         <!-- start menu -->
         <link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
         <script type="text/javascript" src="web/js/megamenu.js"></script>
+        <!-- submenu -->
+        <script type="text/javascript" src="submenureports_files/mbjsmbmcp.js"></script>
+        <!-- submenu -->
 
-        <script type="text/javascript" src="web/js/paging.js"></script>
-        
-        <!-- excel -->
-        <script>
-            function aExcel()
-                    vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");</script>
         <script>$(document).ready(function () {
-                $(".megamenu").megamenu();
-        }
-        )
-        ;</script>
+        $(".megamenu").megamenu();
+    });</script>
         <script src="web/js/jquery.easydropdown.js"></script>
-        <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
-
-
-        <!-- filtro multicriterio -->
+    		
+    <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
+    <!-- filtro multicriterio -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
         <script type="text/javascript" src="web/js/jquery_table.js"></script>
         <!-- JS QUE SE ENCARGA AL PRINCIPIO UNA VEZ LEIDO EL HTML EL CLIENTE (como el evento onload del body) -->
@@ -48,39 +42,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
         </script>
         <!-- ------- -->
-
-    </head>
-    <body>
-        <div class="header-top">
-            <div class="wrap"> 
-                <div class="header-top-left">
-                    <div class="box">
-                        <select tabindex="4" class="dropdown">
-                            <option value="" class="label" value="">Idioma :</option>
-                            <option value="1">Ingles</option>
-                            <option value="2">Espa&ntilde;ol</option>
-                        </select>
-                    </div>
-
-                    <div class="clear"></div>
+</head>
+<body>
+    <div class="header-top">
+        <div class="wrap"> 
+            <div class="header-top-left">
+                <div class="box">
+                    <select tabindex="4" class="dropdown">
+                        <option value="" class="label" value="">Idioma :</option>
+                        <option value="1">Ingles</option>
+                        <option value="2">Espa&ntilde;ol</option>
+                    </select>
                 </div>
-                <div class="cssmenu">
-                    <ul>
-                        <li class="active"><a href="login.jsp">Cuenta</a></li> |
-                        <li><a href="checkout.jsp">Carrito</a></li> |
-                        <li><a href="login.jsp">Iniciar Sesion</a></li> |
-                        <li><a href="register.jsp">Registrarse</a></li>
-                    </ul>
-                </div>
+
                 <div class="clear"></div>
             </div>
+            <div class="cssmenu">
+                <ul>
+                    <li class="active"><a href="login.jsp">Cuenta</a></li> |
+                    <li><a href="checkout.jsp">Carrito</a></li> |
+                    <li><a href="login.jsp">Iniciar Sesion</a></li> |
+                    <li><a href="register.jsp">Registrarse</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
         </div>
-        <div class="header-bottom">
-            <div class="wrap">
-                <div class="header-bottom-left">
-                    <div class="logo">
-                        <a href="index.html"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
-                    </div>
+    </div>
+    <div class="header-bottom">
+        <div class="wrap">
+            <div class="header-bottom-left">
+                <div class="logo">
+                    <a href="index.jsp"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
+
                     <div class="menu">
                         <ul class="megamenu skyblue">
                             <li class="active grid"><a href="Smooth_Curtains.jsp">Cortinas Lisas	</a></li>
@@ -97,9 +90,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="header-bottom-right"></div>
             <div class="clear"></div>
         </div>
-        <div class="mens">    
+    </div>
+    <div class="mens">    
 
-            <div class="main">
+      <div class="main">
 
                 <center>
                     <div id="mbmcpebul_wrapper" style="max-width: 944px;">
@@ -135,83 +129,68 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();
 
                     %>
-                    <form action="" method="get" enctype="application/x-www-form-urlencoded">
-                        <table cellspacing='0' id="results" > <!-- cellspacing='0' is important, must stay -->
+                    <table cellspacing='0' id="results"> <!-- cellspacing='0' is important, must stay -->
 
-                            <!-- Table Header -->
-                            <thead>
-                                <tr id="titulo">
-                                    <th> <strong>Documento</strong>  </th> 
-                                    <th> <strong>Nombre</strong>  </th> 
-                                    <th> <strong>Apellido</strong>  </th> 
-                                    <th> <strong>Correo</strong> </th> 
-                                    <th> <strong>Tipo-Usuario</strong> </th> 
-                                    <th> <strong>Eliminar</strong> </th> 
-                                    <th> <strong>Modificar</strong></th>
+                        <!-- Table Header -->
+                        <thead>
+                            <tr id="titulo">
+                                <th> <strong>Documento</strong>  </th> 
+                                <th> <strong>Nombre</strong>  </th> 
+                                <th> <strong>Apellido</strong>  </th> 
+                                <th> <strong>Correo</strong> </th> 
+                                <th> <strong>Tipo-Usuario</strong> </th> 
+                                <th> <strong>Eliminar</strong> </th> 
+                                <th> <strong>Modificar</strong></th>
 
-                                </tr>
-                            </thead>
-                            <!-- Table Header -->
+                            </tr>
+                        </thead>
+                        <!-- Table Header -->
 
-                            <!-- Table Body -->
-                            <tbody>
-                                <%                for (UsuariosDTO u : usuarios) {
+                        <!-- Table Body -->
+                        <tbody>
+                            <%                for (UsuariosDTO u : usuarios) {
 
 
-                                %>
-                                <tr>
-                                    <td><%=u.getCC()%></td>
-                                    <td><%=u.getNombres()%></td>
-                                    <td><%=u.getApellidos()%></td> 
-                                    <td><%=u.getCorreoElectronico()%></td> 
-                                    <td><%=u.getTipoUsuario()%></td>
-                                    <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
-                                    <td><a href="#modalcr1">Edit</a></td>
-                                </tr>
-                            <div id="modalcr1" class="modalmask">
-                                <div class="modalbox movedown">
-                                    <a href="#close" title="Close" class="close">X</a>
-                                    <p><div class="inner_content clearfix">
-                                        <form id="formmodificar" method="post">
-
-                                            <label for="nom">Nombre</label>
-                                            <input type="text" name="nom" placeholder="<%=u.getNombres()%>"/>
-                                            </br>
-                                            <label for="ape">Apellido</label>
-                                            <input type="text" name="ape" placeholder="<%=u.getApellidos()%>"/>
-                                            </br>
-                                            <label for="mail">Correo</label>
-                                            <input type="text" name="mail" placeholder="<%=u.getCorreoElectronico()%>"/>
-                                            </br>
-                                            <input type="submit" name="edit" value="Modificar"/>
-
-                                        </form>					
-                                    </div></p>
-
-                                </div>
-                            </div>
-                            <%
-                                }
                             %>
-                            </tbody>
-                            <!-- Table Body -->
+                            <tr>
+                                <td><%=u.getCC()%></td>
+                                <td><%=u.getNombres()%></td>
+                                <td><%=u.getApellidos()%></td> 
+                                <td><%=u.getCorreoElectronico()%></td> 
+                                <td><%=u.getTipoUsuario()%></td>
+                                <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
+                                <td><a href="#modalcr1">Edit</a></td>
+                            </tr>
+                        <div id="modalcr1" class="modalmask">
+                            <div class="modalbox movedown">
+                                <a href="#close" title="Close" class="close">X</a>
+                                <p><div class="inner_content clearfix">
+                                    <form id="formmodificar" method="post">
 
-                        </table>
+                                        <label for="nom">Nombre</label>
+                                        <input type="text" name="nom" placeholder="<%=u.getNombres()%>"/>
+                                        </br>
+                                        <label for="ape">Apellido</label>
+                                        <input type="text" name="ape" placeholder="<%=u.getApellidos()%>"/>
+                                        </br>
+                                        <label for="mail">Correo</label>
+                                        <input type="text" name="mail" placeholder="<%=u.getCorreoElectronico()%>"/>
+                                        </br>
+                                        <input type="submit" name="edit" value="Modificar"/>
 
-                    </form>
+                                    </form>					
+                                </div></p>
 
-  <div id="pageNavPosition" class="active"></div>
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+                        </tbody>
+                        <!-- Table Body -->
 
-                        <script type="text/javascript"><!--
-                        var pager = new Pager('results', 4);
-                        pager.init();
-                        pager.showPageNav('pager', 'pageNavPosition');
-                        pager.showPage(1);
-                        //--></script>
-
-                    
-                    </br>
-                    </br>
+                    </table>
+                    <div id="pageNavPosition"></div>
                     <a href="#" class="redbtn">Exportar a PDF</a> </br> 
                     </br>
                     </br>

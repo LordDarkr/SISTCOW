@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="menu">
 	            <ul class="megamenu skyblue">
-			<li class="active grid"><a href="Smooth_Curtains.jsp">Cortinas Lisas	</a></li>
+			<li class="active grid"><a href="Smooth_Curtains.jsp">Cortinas Lisas</a></li>
 			<li><a class="color4" href="Roman_Curtains.jsp">Cortinas Romanas</a>
 				
 				</li>				
