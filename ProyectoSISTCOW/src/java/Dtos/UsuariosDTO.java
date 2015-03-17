@@ -6,7 +6,7 @@ package Dtos;
  */
 public class UsuariosDTO {
 
-    private long CC;
+    private long CC=0;
     private String TipoUsuario;
     private String Nombres;
     private String Apellidos;

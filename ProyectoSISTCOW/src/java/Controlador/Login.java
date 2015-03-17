@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
             UsuariosDAO uDAO = new UsuariosDAO();
             UsuariosDTO uDTO = new UsuariosDTO();
             uDTO = uDAO.validarUsuario(request.getParameter("email"), request.getParameter("password"));
-            if (uDTO.getCC() != 0) {
+            if (uDTO!= null) {
                 HttpSession miSesion = request.getSession(true);
                 miSesion.setAttribute("admLogueado", uDTO);
                 if (uDTO.getTipoUsuario().equals("Administrador") || uDTO.getTipoUsuario().equals("Empleado")){
@@ -37,9 +37,12 @@ public class Login extends HttpServlet {
                 else if (uDTO.getTipoUsuario().equals("Cliente")){
                    response.sendRedirect("Success.jsp"); 
                 }
-            }else {
-
+            }else if (uDTO == null) {
                 response.sendRedirect("login.jsp?msg=Usuario No existe!!");
+            }
+{
+
+               
 
             }
         }

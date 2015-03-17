@@ -41,7 +41,7 @@ public class UsuariosDAO {
         try {
             cnn = Conectar.getInstance();
             // La Query
-            pstmt = cnn.prepareStatement("SELECT CC, Nombres, Apellidos, TipoUsuario FROM usuarios where correoElectronico = ? and Clave=?");
+            pstmt = cnn.prepareStatement("SELECT CC, Nombres, Apellidos, TipoUsuario FROM Usuarios where correoElectronico = ? and Clave=?");
             pstmt.setString(1, email);
             pstmt.setString(2, clave);
             rs = pstmt.executeQuery();
