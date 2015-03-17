@@ -95,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="footer-bottom">
 			<div class="wrap">
 				<div class="copy">
-			        <p>ï¿½ 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+			        <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
 		        </div>
 				<div class="f-list2">
 				<ul>

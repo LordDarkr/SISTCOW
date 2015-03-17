@@ -81,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="cssmenu">
                     <ul>
-                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li>
+                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
                         <li><a href="logout.jsp">Cerrar Sesión</a></li>
                     </ul>
                 </div>
@@ -123,7 +123,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
                             <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
                             <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                            <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
                         </ul>
                     </div>
                 </center> 
@@ -254,7 +253,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="footer-bottom">
                 <div class="wrap">
                     <div class="copy">
-                        <p>Â© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+                        <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
                     </div>
                     <div class="f-list2">
                         <ul>

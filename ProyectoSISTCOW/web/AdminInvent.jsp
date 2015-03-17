@@ -25,6 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="web/css/mbcsmbmcp.css" type="text/css" />
+        <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
+        <script type="text/javascript" src="web/js/paging.js"></script>
+
         <script type="text/javascript" src="web/js/jquery1.min.js"></script>
         <!-- start menu -->
         <link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -33,6 +36,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $(".megamenu").megamenu();
             });</script>
         <script src="web/js/jquery.easydropdown.js"></script>
+        
+        <!-- filtro multicriterio -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="web/js/jquery_table.js"></script>
+        <!-- JS QUE SE ENCARGA AL PRINCIPIO UNA VEZ LEIDO EL HTML EL CLIENTE (como el evento onload del body) -->
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#results').buscoloquemesaledelospeones('inputFiltro');
+        });
+        </script>
+        <!-- ------- -->
 
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
     </head>
@@ -54,7 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <select tabindex="4" class="dropdown">
                             <option value="" class="label" value="">Idioma :</option>
                             <option value="1">Ingles</option>
-                            <option value="2">Espa&Ncaron;ol</option>
+                            <option value="2">Espa&ncaron;ol</option>
                         </select>
                     </div>
 
@@ -62,8 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="cssmenu">
                     <ul>
-                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li>
-                        <li><a href="logout.jsp">Cerrar SesiÃ³n</a></li>
+                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
+                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -118,8 +132,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <center>
                     <div class="search1">	  
                         <input type="text" id="inputFiltro" name="buscar" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                this.value = 'Buscar';
-                            }">
+                                    this.value = 'Buscar';
+                                }">
                         <input type="submit" value="#" id="submit" name="submit">
 
                     </div> 
@@ -178,10 +192,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     <script type="text/javascript"><!--
                     var pager = new Pager('results', 4);
-                    pager.init();
-                    pager.showPageNav('pager', 'pageNavPosition');
-                    pager.showPage(1);
-                    //--></script>
+                        pager.init();
+                        pager.showPageNav('pager', 'pageNavPosition');
+                        pager.showPage(1);
+                        //--></script>
                     </br>
                     </br>
                     <a href="#" class="redbtn">Exportar a PDF</a> </br> 
@@ -215,7 +229,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="footer-bottom">
                 <div class="wrap">
                     <div class="copy">
-                        <p>Ã¯Â¿Â½ 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+                        <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
                     </div>
                     <div class="f-list2">
                         <ul>
@@ -227,6 +241,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
         </div>
-            <%}%>
+        <%}%>
     </body>
 </html>
