@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <select tabindex="4" class="dropdown">
                             <option value="" class="label" value="">Idioma :</option>
                             <option value="1">Ingles</option>
-                            <option value="2">Espa&Ncaron;ol</option>
+                            <option value="2">Espa&ncaron;ol</option>
                         </select>
                     </div>
 

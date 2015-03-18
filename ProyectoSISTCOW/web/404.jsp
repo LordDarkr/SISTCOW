@@ -34,12 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    				    <div class="clear"></div>
    			 </div>
 			 <div class="cssmenu">
-				<ul>
-					<li class="active"><a href="login.jsp">Cuenta</a></li> |
-					<li><a href="checkout.jsp">Carrito</a></li> |
-					<li><a href="login.jsp">Iniciar Sesion</a></li> |
-					<li><a href="register.jsp">Registrarse</a></li>
-				</ul>
+				
 			</div>
 			<div class="clear"></div>
  		</div>

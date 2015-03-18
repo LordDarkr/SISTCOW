@@ -51,7 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <select tabindex="4" class="dropdown">
                             <option value="" class="label" value="">Idioma :</option>
                             <option value="1">Ingles</option>
-                            <option value="2">Espa&Ncaron;ol</option>
+                            <option value="2">Espa&ncaron;ol</option>
                         </select>
                     </div>
 
@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="cssmenu">
                     <ul>
                         <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
-                        <li><a href="logout.jsp">Cerrar SesiÃ³n</a></li>
+                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </div>
 			<div class="clear"></div>

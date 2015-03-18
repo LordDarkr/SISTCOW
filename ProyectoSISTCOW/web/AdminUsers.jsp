@@ -36,9 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");</script>
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
-        }
-        )
-        ;</script>
+        });</script>
         <script src="web/js/jquery.easydropdown.js"></script>
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 
@@ -82,7 +80,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="cssmenu">
                     <ul>
                         <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
-                        <li><a href="logout.jsp">Cerrar Sesión</a></li>
+                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </div>
                 <div class="clear"></div>
