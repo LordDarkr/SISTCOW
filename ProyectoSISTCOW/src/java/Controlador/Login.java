@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
                    response.sendRedirect("AdminIndex.jsp");
                 }
                 else if (uDTO.getTipoUsuario().equals("Cliente")){
-                   response.sendRedirect("Success.jsp"); 
+                   response.sendRedirect("UserQuotes.jsp"); 
                 }
             }else if (uDTO == null) {
                 response.sendRedirect("login.jsp?msg=Usuario No existe!!");

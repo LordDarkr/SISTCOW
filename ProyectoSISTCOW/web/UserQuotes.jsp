@@ -4,9 +4,16 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="Dtos.UsuariosDTO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
+     <%
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setDateHeader("Expires", 0);
+        %>
 <title>Sistcoweb</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,6 +30,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 </head>
 <body>
+    <%
+            HttpSession misesion = request.getSession(false);
+
+            if (misesion.getAttribute("admLogueado") == null) {
+                response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
+
+            } else {
+                UsuariosDTO pr = new UsuariosDTO();
+                pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+        %>
        	<div class="header-top">
 			<div class="wrap"> 
 			  <div class="header-top-left">
@@ -37,12 +54,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    				    <div class="clear"></div>
    			 </div>
 			 <div class="cssmenu">
-				<ul>
-					<li class="active"><a href="login.jsp">Cuenta</a></li> |
-					<li><a href="checkout.jsp">Carrito</a></li> |
-					<li><a href="login.jsp">Iniciar Sesion</a></li> |
-					<li><a href="register.jsp">Registrarse</a></li>
-				</ul>
+			<ul>
+                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
+                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
+                        </ul>
 			</div>
 			<div class="clear"></div>
  		</div>
@@ -185,7 +200,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="footer-bottom">
 			<div class="wrap">
 	                <div class="copy">
-			           <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+			           <p>Â© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
 		            </div>
 		       <div class="f-list2">
 				<ul>
@@ -197,5 +212,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		      </div>
 			</div>
 		</div>
+        <%}%>
 </body>
 </html>

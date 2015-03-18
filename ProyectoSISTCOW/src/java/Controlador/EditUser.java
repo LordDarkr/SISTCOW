@@ -25,10 +25,15 @@ public class EditUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            if (request.getParameter("idmodificar") != null) {
                 UsuariosDAO udo = new UsuariosDAO();
                 UsuariosDTO udt = new UsuariosDTO();
-
+                if (request.getParameter("idcl")!= null){
+                    udt.setNombres(request.getParameter("nom"));
+                    udt.setApellidos(request.getParameter("ape"));
+                    udt.setCorreoElectronico(request.getParameter("mail"));
+                    udt.setCC(Long.parseLong(request.getParameter("idcl")));
+                    udo.actualizarDatos(udt);
+                    response.sendRedirect("AdminUsers.jsp?msg=Se ha actualizado el usuario");
             }
 
         }

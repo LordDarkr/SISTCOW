@@ -1,3 +1,4 @@
+
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -104,46 +105,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="clear"></div>
             </div>
         </div>
-        <div class="header-bottom">
-            <div class="wrap">
-                <div class="header-bottom-left">
-                    <div class="logo">
-                        <a href="index.html"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
-                    </div>
-                    <div class="menu">
-                        <ul class="megamenu skyblue">
-                            <li class="active grid"><a href="Smooth_Curtains.jsp">Cortinas Lisas	</a></li>
-                            <li><a class="color4" href="Roman_Curtains.jsp">Cortinas Romanas</a>
-
-                            </li>				
-                            <li><a class="color5" href="Japanese_Panels.jsp">Paneles Japoneses</a>
-                            </li>
-                            <li><a class="color6" href="Shutters.jsp">Persianas</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clear"></div>
-        </div>
 
         <div class="mens">    
 
             <div class="main">
-                <%
-                    HttpSession misesion = request.getSession(false);
-
-                    if (misesion.getAttribute("admLogueado") == null) {
-                        response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
-
-                    } else {
-                        UsuariosDTO udto = null;
-                        UsuariosDTO us = null;
-                        UsuariosDAO udao = new UsuariosDAO();
-                        us = (UsuariosDTO) misesion.getAttribute("admLogueado");
-                        us = udao.ListarUnUsuario(udto.getCC());
-                %>
-
                 <center>
 
                     <br/>
@@ -152,16 +117,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <center>
                         <div class="col_1_of_CHP span_1_of_CHP">
 
-                            <form action="" method="post" name="login" id="login-form">	  <fieldset class="input">
+                            <form action="EditUser?idcl=<%=request.getParameter("idcli")%>" method="post" name="edituser" id="login-form">	  <fieldset class="input">
 
                                     <label for="nom">Nombre</label>
-                                    <input  type="text" name="nom" class="inputbox" size="18" placeholder="<%=us.getNombres()%>" REQUIRED>
+                                    <input  type="text" name="nom" class="inputbox" size="18" placeholder="<%=request.getParameter("nm")%>" REQUIRED>
                                     </p>
                                     <label for="NewSecondName">Apellido </label>
-                                    <input type="text" name="ape" placeholder="<%=us.getApellidos()%>" class="inputbox" size="18" REQUIRED>
+                                    <input type="text" name="ape" placeholder="<%=request.getParameter("ap")%>" class="inputbox" size="18" REQUIRED>
                                     </p>
                                     <label for="mail">Correo</label>
-                                    <input type="email" name="mail" placeholder="<%=us.getCorreoElectronico()%>" class="inputbox" size="18" REQUIRED>
+                                    <input type="email" name="mail" placeholder="<%=request.getParameter("cor")%>" class="inputbox" size="18" REQUIRED>
                                     </p>
                                     <div class="remember">
                                         <p id="login-form-remember">
@@ -172,9 +137,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </fieldset>
 
                             </form>
-                            <%
-                                }
-                            %>
            </div>                         
 </center>
      

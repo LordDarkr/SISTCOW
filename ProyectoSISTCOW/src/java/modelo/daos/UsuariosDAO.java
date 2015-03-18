@@ -192,7 +192,7 @@ public class UsuariosDAO {
 
         try {
             String query = "Select cc, Nombres, Apellidos, correoElectronico, TipoUsuario from usuarios\n"
-                    + "where TipoUsuario='Empleado' or tipousuario='Cliente';";
+                    + "where TipoUsuario='Empleado';";
             pstmt = cnn.prepareStatement(query);
             rs = pstmt.executeQuery();
 

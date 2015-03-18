@@ -176,7 +176,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <td><%=u.getCorreoElectronico()%></td> 
                                     <td><%=u.getTipoUsuario()%></td>
                                     <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
-                                    <td><a href="#modalcr1">Edit</a></td>
+                                    <td><a href="AdminEditEmployee.jsp?idcli=<%=u.getCC()%>&&nm=<%=u.getNombres()%>&&ap=<%=u.getApellidos()%>&&cor=<%=u.getCorreoElectronico()%>">Edit</a></td>
                                 </tr>
                             <div id="modalcr1" class="modalmask">
                                 <div class="modalbox movedown">
