@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    
     <servlet>
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>Controlador.DeleteUser</servlet-class>
@@ -20,6 +19,10 @@
     <servlet>
         <servlet-name>Log</servlet-name>
         <servlet-class>Controlador.Log</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InactivateAccount</servlet-name>
+        <servlet-class>Controlador.InactivateAccount</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
@@ -53,6 +56,10 @@
         <error-code>500</error-code>
         <location>/500.jsp</location>
     </error-page>
+    <servlet-mapping>
+        <servlet-name>InactivateAccount</servlet-name>
+        <url-pattern>/InactivateAccount</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             120
