@@ -11,7 +11,7 @@
     <body>
         <%
 
-            response.setHeader("Content-Disposition", "attachment;filename=\"ReporteUsuarios.xls\"");
+            response.setHeader("Content-Disposition", "attachment;filename=\"ReporteVentas(Producto).xls\"");
 
             VentaDAO VDao = new VentaDAO();
             ArrayList<VentaDTO> Ventas = new ArrayList();

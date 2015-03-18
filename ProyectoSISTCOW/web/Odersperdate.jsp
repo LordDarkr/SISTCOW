@@ -89,7 +89,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	   <div class="header-bottom-right"></div>
      <div class="clear"></div>
      </div>
-	</div>
 <div class="mens">    
 
   <div class="main">

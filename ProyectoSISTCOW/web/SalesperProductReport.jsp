@@ -120,7 +120,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
                             <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
                             <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                            <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
                         </ul>
                     </div>
                 </center> 

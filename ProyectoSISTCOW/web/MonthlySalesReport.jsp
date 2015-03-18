@@ -24,6 +24,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="web/css/mbcsmbmcp.css" type="text/css" />
+        <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
+
         <script type="text/javascript" src="web/js/jquery1.min.js"></script>
         <!-- start menu -->
         <link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
