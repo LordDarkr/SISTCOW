@@ -36,6 +36,7 @@ public class InactivateAccount extends HttpServlet {
             if(request.getParameter("desactivar")!= null){
                UsuariosDAO ud = new UsuariosDAO();
                ud.eliminar(Long.parseLong(request.getParameter(null)));
+                response.sendRedirect("login.jsp?mens=Cuenta Desactivada");
             }
             
         }
