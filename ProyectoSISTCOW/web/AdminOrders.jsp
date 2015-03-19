@@ -112,18 +112,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <div class="main">
 
-            <center>
-                <div id="mbmcpebul_wrapper" style="max-width: 944px;">
-                    <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
-                        <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                        <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                        <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
-                        <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                        <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
-                        <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                    </ul>
-                </div>
-            </center> 
+           <center>
+                    <div id="mbmcpebul_wrapper" style="max-width: 944px;">
+                        <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+                            <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
+                            <%};%>
+                            <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
+                            <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li> 
+                            <%};%>
+                            
+                            <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
+                        </ul>
+                    </div>
+                </center> 
 
             </br>
             <center>

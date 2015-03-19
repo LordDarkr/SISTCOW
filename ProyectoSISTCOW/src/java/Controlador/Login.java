@@ -35,6 +35,7 @@ public class Login extends HttpServlet {
                    response.sendRedirect("AdminIndex.jsp");
                 }
                 else if (uDTO.getTipoUsuario().equals("Cliente")){
+                miSesion.setAttribute("clientLogueado", uDTO);
                    response.sendRedirect("UserQuotes.jsp"); 
                 }
             }else if (uDTO == null) {

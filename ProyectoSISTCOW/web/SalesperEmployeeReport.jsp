@@ -93,8 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div id="response"> </div>
 		 </div>
 	  <div class="tag-list">
-			</li>
-		</ul>
+			
 		<ul class="icon1 sub-icon1 profile_img">
 			<li><a class="active-icon c2" href="#"> </a>
 				<ul class="sub-icon1 list">
@@ -108,24 +107,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
      <div class="clear"></div>
      </div>
-	</div>
 <div class="mens">    
 
   <div class="main">
   
-  <center>
-   <div id="mbmcpebul_wrapper" style="max-width: 944px;">
-  <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
-  <li><div class="buttonbg" style="width: 76px;"><a href="Admin Index.jsp">Inicio</a></div></li>
-  <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-  <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
-  <li><div class="buttonbg"><a href="Admin inventory.jsp">Inventario</a></div></li>
-  <li><div class="buttonbg" style="width: 177px;"><a href="Admin Users.jsp">Administrar Usuarios</a></div></li>
-  <li><div class="buttonbg" style="width: 174px;"><a href="Admin Change Pass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-  <li><div class="buttonbg" style="width: 127px;"><a href="Index.jsp">Cerrar sesi&oacute;n</a></div></li>
-  </ul>
-</div>
-   </center>
+ <center>
+                    <div id="mbmcpebul_wrapper" style="max-width: 944px;">
+                        <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+                            <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
+                            <%};%>
+                            <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
+                            <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li> 
+                            <%};%>
+                            
+                            <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
+                        </ul>
+                    </div>
+                </center> 
   
      </br>
       <center>

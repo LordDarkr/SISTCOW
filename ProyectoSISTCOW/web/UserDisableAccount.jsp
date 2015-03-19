@@ -34,12 +34,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <%
             HttpSession misesion = request.getSession(false);
 
-            if (misesion.getAttribute("admLogueado") == null) {
+            if (misesion.getAttribute("clientLogueado") == null) {
                 response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
 
             } else {
                 UsuariosDTO pr = new UsuariosDTO();
-                pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+                pr = (UsuariosDTO) misesion.getAttribute("clientLogueado");
         %>
        	<div class="header-top">
 			<div class="wrap"> 

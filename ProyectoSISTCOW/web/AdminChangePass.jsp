@@ -89,18 +89,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <div class="main">
 
-        <center>
-            <div id="mbmcpebul_wrapper" style="max-width: 944px;">
-                <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
-                    <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                    <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                    <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
-                    <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                    <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li>
-                    <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
-                </ul>
-            </div>
-        </center> 
+       <center>
+                    <div id="mbmcpebul_wrapper" style="max-width: 944px;">
+                        <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+                            <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
+                            <%};%>
+                            <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
+                            <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
+                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                            <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li> 
+                            <%};%>
+                            
+                            <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
+                        </ul>
+                    </div>
+                </center> 
         </br>
         <center> <h3 class="m_3">Cambiar Contrase&ntilde;a</h3></center>
         <center> <h3 class="m_3"> </h3></center>
@@ -111,11 +116,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <label for="Actual_Pass">Contrase&ntilde;a Actual</label>
                         <input id="Actual_Pass" type="password" name="Actual_Pass" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
-                        <label for="New Pass1">Contrase&ntilde;a </label>
-                        <input id="New Pass1" type="password" name="newpass1" class="inputbox" size="18" autocomplete="off"REQUIRED>
+                        <label for="NewPass1">Contrase&ntilde;a </label>
+                        <input id="NewPass1" type="password" name="newpass1" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
-                        <label for="New Pass2">Repita la Nueva Contrase&ntilde;a</label>
-                        <input id="New Pass2" type="password" name="newpass2" class="inputbox" size="18" autocomplete="off"REQUIRED>
+                        <label for="NewPass2">Repita la Nueva Contrase&ntilde;a</label>
+                        <input id="NewPass2" type="password" name="newpass2" class="inputbox" size="18" autocomplete="off"REQUIRED>
                         </p>
                         <div class="remember">
                             <p id="login-form-remember">

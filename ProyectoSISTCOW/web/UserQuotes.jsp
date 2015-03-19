@@ -33,12 +33,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <%
             HttpSession misesion = request.getSession(false);
 
-            if (misesion.getAttribute("admLogueado") == null) {
+            if (misesion.getAttribute("clientLogueado") == null) {
                 response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
 
             } else {
                 UsuariosDTO pr = new UsuariosDTO();
-                pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+                pr = (UsuariosDTO) misesion.getAttribute("clientLogueado");
         %>
        	<div class="header-top">
 			<div class="wrap"> 
@@ -68,7 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    <div class="wrap">
 			<div class="header-bottom-left">
 				<div class="logo">
-					<a href="index.html"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
+					<a href="index.jsp"><img src="web/images/logo.png" alt="" width="800px" height="120px"/></a>
 				</div>
 			<div class="menu">
 	            <ul class="megamenu skyblue">
