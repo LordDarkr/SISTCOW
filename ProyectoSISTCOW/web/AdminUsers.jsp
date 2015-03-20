@@ -173,6 +173,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </center>
 
                     <%
+
                         UsuariosDAO uDao = new UsuariosDAO();
                         ArrayList<UsuariosDTO> usuarios = new ArrayList();
                         usuarios = (ArrayList<UsuariosDTO>) uDao.listarUsuarios();

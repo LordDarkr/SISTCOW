@@ -35,6 +35,7 @@ public class FiltrosMulticriterio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
+        HttpSession misesion = request.getSession(true);
         
         if (request.getParameter("nombreBoton") != null){
             ArrayList<UsuariosDTO> usuarios = new ArrayList();
@@ -45,6 +46,7 @@ public class FiltrosMulticriterio extends HttpServlet {
             String Apellido = request.getParameter("Apellido");
             
             usuarios = (ArrayList<UsuariosDTO>) uDAO.filtroUsuarios(CC, Nombre, Apellido);
+            misession.setAtribute("arreglo",odjeto);
             response.sendRedirect("AdminUsers.jsp");
         }
     }
