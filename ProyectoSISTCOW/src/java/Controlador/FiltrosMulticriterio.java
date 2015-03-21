@@ -1,61 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controlador;
 
 import Dtos.UsuariosDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import modelo.daos.UsuariosDAO;
 
 /**
  *
- * @author Darkr232
+ * @author Sena
  */
-public class Login extends HttpServlet {
+public class FiltrosMulticriterio extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        if (request.getParameter("login") != null) {
+        
+        if (request.getParameter("nombreBoton") != null){
+            ArrayList<UsuariosDTO> usuarios = new ArrayList();
             UsuariosDAO uDAO = new UsuariosDAO();
-            UsuariosDTO uDTO = new UsuariosDTO();
-            uDTO = uDAO.validarUsuario(request.getParameter("email"), request.getParameter("password"));
-            if (uDTO!= null) {
-                HttpSession miSesion = request.getSession(true);
-                miSesion.setAttribute("admLogueado", uDTO);
-                if (uDTO.getTipoUsuario().equals("Administrador") || uDTO.getTipoUsuario().equals("Empleado")){
-                   response.sendRedirect("AdminIndex.jsp");
-                }
-                else if (uDTO.getTipoUsuario().equals("Cliente")){
-                miSesion.setAttribute("clientLogueado", uDTO);
-                   response.sendRedirect("UserQuotes.jsp"); 
-                }
-            }else if (uDTO == null) {
-                response.sendRedirect("login.jsp?msg=Usuario No existe!!");
-                
-            }else if (request.getParameter("action") != null) {
-            HttpSession sesion = request.getSession(false);
-            sesion.removeAttribute("admlogueado");
-            sesion.invalidate();
-            response.sendRedirect("Index.html");
-
-        }
             
-{
-
-               
-
-            }
+            String CC = request.getParameter("Cedula");
+            String Nombre = request.getParameter("Nombre");
+            String Apellido = request.getParameter("Apellido");
+            
+            usuarios = (ArrayList<UsuariosDTO>) uDAO.filtroUsuarios(CC, Nombre, Apellido);
+            response.sendRedirect("AdminUsers.jsp");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -73,7 +64,7 @@ public class Login extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FiltrosMulticriterio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -91,7 +82,7 @@ public class Login extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FiltrosMulticriterio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

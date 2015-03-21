@@ -37,10 +37,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             if (misesion.getAttribute("admLogueado") == null) {
                 response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
-
-            } else {
                 UsuariosDTO pr = new UsuariosDTO();
                 pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
+
+            } else {
+                misesion.removeAttribute("logueado");
+                misesion.invalidate();
+                 response.sendRedirect("Index.html?msg= Sesion cerrada");
+            
+            
+            
+                
         %>
         <div class="header-top">
             <div class="wrap"> 
@@ -58,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="cssmenu">
                     <ul>
                         <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
-                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
+                        <li><a href="Login?action=admLogueado">Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -84,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
             <div class="header-bottom-right">
-              
+
             </div>
             <div class="clear"></div>
         </div>
@@ -96,15 +103,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div id="mbmcpebul_wrapper" style="max-width: 944px;">
                         <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
                             <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                                <%if (pr.getTipoUsuario().equals("Administrador")) {%>
                             <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                            <%};%>
+                                <%};%>
                             <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
                             <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                                <%if (pr.getTipoUsuario().equals("Administrador")) {%>
                             <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li> 
-                            <%};%>
-                            
+                                <%};%>
+
                             <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
                         </ul>
                     </div>
@@ -114,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <center>
                     <h3 class="m_3">Bienvenido</h3>
                     </br>
-                     <h3 class="m_3"><strong>  <%=pr.getNombres()%> </strong> </h3>  </center>
+                    <h3 class="m_3"><strong>  <%=pr.getNombres()%> </strong> </h3>  </center>
 
                 <center>
 

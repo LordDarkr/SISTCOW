@@ -299,24 +299,22 @@ public class UsuariosDAO {
         return y;
     }
 
-    public List<UsuariosDTO> filtroPersonas(String nacionalidad, String nombres, String ciudades) throws SQLException {
-        ArrayList<UsuariosDTO> filtroPersonas = new ArrayList();
+    public List<UsuariosDTO> filtroUsuarios(String CC, String Nombres, String Apellidos) throws SQLException {
+        ArrayList<UsuariosDTO> filtroUsuarios = new ArrayList();
 
         try {
-            StringBuilder sb = new StringBuilder("select p.nombres, p.apellidos, p.correoElectronico, a.Ciudad, c.nacionalidad,c.idioma "
-                    + "from personas p inner join "
-                    + "nacionalidades c on p.idNacionalidad = c.idNacionalidad "
-                    + "inner join ciudades a on p.idCiudad = a.idCiudad");
+            StringBuilder sb = new StringBuilder("Select cc, Nombres, Apellidos, correoElectronico, TipoUsuario from usuarios\\n\"\n" +
+"                    + \"where TipoUsuario='Empleado';");
 
-            if (nacionalidad != null) {
-                sb.append("AND c.nacionalidad LIKE '").append(nacionalidad).append("%'");
+            if (CC != null) {
+                sb.append("AND u.CC LIKE '").append(CC).append("%'");
             }
-            if (nombres != null) {
-                sb.append("AND p.nombres LIKE '").append(nombres).append("%'");
+            if (Nombres != null) {
+                sb.append("AND u.Nombres LIKE '").append(Nombres).append("%'");
             }
 
-            if (ciudades != null) {
-                sb.append("AND a.Ciudad LIKE '").append(ciudades).append("%'");
+            if (Apellidos != null) {
+                sb.append("AND u.Apellidos LIKE '").append(Apellidos).append("%'");
             }
 
             pstmt = cnn.prepareStatement(sb.toString());
@@ -324,12 +322,12 @@ public class UsuariosDAO {
 
             while (rs.next()) {
                 UsuariosDTO Rdao = new UsuariosDTO();
-                Rdao.setNombres(rs.getString("nombres"));
-                Rdao.setApellidos(rs.getString("apellidos"));
+                Rdao.setCC(rs.getLong("cc"));
+                Rdao.setNombres(rs.getString("Nombres"));
+                Rdao.setApellidos(rs.getString("Apellidos"));
                 Rdao.setCorreoElectronico(rs.getString("correoElectronico"));
-              //  Rdao.setIdNacionalidad(rs.getInt("pais"));
-                //  Rdao.setIdNacionalidad(rs.getInt("idNacionalidad"));
-                filtroPersonas.add(Rdao);
+                Rdao.setTipoUsuario(rs.getString("TipoUsuario"));
+                filtroUsuarios.add(Rdao);
 
             }
 
@@ -338,7 +336,7 @@ public class UsuariosDAO {
         } finally {
 
         }
-        return filtroPersonas;
+        return filtroUsuarios;
     }
     
 }

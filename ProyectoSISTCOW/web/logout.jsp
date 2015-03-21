@@ -8,6 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setDateHeader("Expires", 0);
+        %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -23,7 +28,7 @@
             } else {
                 misesion.removeAttribute("admLogueado");
                 misesion.invalidate();
-                response.sendRedirect("login.jsp?msg= Sesion cerrada");
+                response.sendRedirect("index.jsp?msg= Sesion cerrada");
             }
         %>
     </body>

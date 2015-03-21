@@ -20,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
-                <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
+        <link rel="stylesheet" href="web/css/redbtn.css" type="text/css" />
 
         <link rel="stylesheet" href="web/css/mbcsmbmcp.css" type="text/css" />
         <script type="text/javascript" src="web/js/jquery1.min.js"></script>
@@ -29,14 +29,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="text/javascript" src="web/js/megamenu.js"></script>
 
         <script type="text/javascript" src="web/js/paging.js"></script>
-        
+
         <!-- excel -->
         <script>
             function aExcel()
                     vEcxel = window.open("excel.jsp,"",status=0,toolbar=0,location=0,menubar=0,resizable=0,with=400,height=200");</script>
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
-        });</script>
+        }
+        )
+        ;</script>
         <script src="web/js/jquery.easydropdown.js"></script>
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
 
@@ -112,19 +114,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="main">
 
-              <center>
+                <center>
                     <div id="mbmcpebul_wrapper" style="max-width: 944px;">
                         <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
                             <li><div class="buttonbg" style="width: 76px;"><a href="AdminIndex.jsp">Inicio</a></div></li>
-                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                                <%if (pr.getTipoUsuario().equals("Administrador")) {%>
                             <li><div class="buttonbg" style="width: 99px;"><a href="MonthlySalesReport.jsp">Reportes</a></div></li>
-                            <%};%>
+                                <%};%>
                             <li><div class="buttonbg" style="width: 93px;"><a href="Odersperdate.jsp">Pedidos</a></div></li>
                             <li><div class="buttonbg"><a href="AdminInvent.jsp">Inventario</a></div></li>
-                            <%if (pr.getTipoUsuario().equals("Administrador")){%>
+                                <%if (pr.getTipoUsuario().equals("Administrador")) {%>
                             <li><div class="buttonbg" style="width: 177px;"><a href="AdminUsers.jsp">Administrar Usuarios</a></div></li> 
-                            <%};%>
-                            
+                                <%};%>
+
                             <li><div class="buttonbg" style="width: 174px;"><a href="AdminChangePass.jsp">Cambiar Contrase&ntilde;a</a></div></li>
                         </ul>
                     </div>
@@ -134,15 +136,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <center>
                     <h3 class="m_3">Administrar Usuarios</h3></center>
                 </br>
-                
+
                 <center>
-                    <center>       <div class="search1">	  
-                            <input type="text" id="inputFiltro" name="buscar" class="textbox" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <center>  
+                        <form action="" > 
+                            <table cellspacing='0' id="345345">
+                            <th>
+                            <div class="search1">	  
+                                <input type="text" id="inputFiltro" name="Cedula" class="textbox" value="Cedula" onfocus="this.value = '';" onblur="if (this.value == '') {
                                     this.value = 'Buscar';
                                 }">
-                            <input type="submit" value="#" id="submit" name="submit">
 
-                        </div>   </center>
+                            </div>
+                            </th>
+                            <th>
+                            
+                            <div class="search1">	  
+                                <input type="text" id="inputFiltro" name="Nombre" class="textbox" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Buscar';
+                                }">
+
+                            </div> 
+                            </th>
+                            <th>
+                            <div class="search1">	  
+                                <input type="text" id="inputFiltro" name="Apellido" class="textbox" value="Apellido" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Buscar';
+                                }">
+                                <input type="submit" value="#" id="submit" name="submit">
+
+                            </div> 
+                            </th>
+                            </table>
+                        </form>
+
+                    </center>
 
                     <%
                         UsuariosDAO uDao = new UsuariosDAO();
@@ -215,16 +243,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     </form>
 
-  <div id="pageNavPosition" class="active"></div>
+                    <div id="pageNavPosition" class="active"></div>
 
-                        <script type="text/javascript"><!--
-                        var pager = new Pager('results', 4);
-                        pager.init();
-                        pager.showPageNav('pager', 'pageNavPosition');
-                        pager.showPage(1);
-                        //--></script>
+                    <script type="text/javascript"><!--
+                    var pager = new Pager('results', 4);
+                    pager.init();
+                    pager.showPageNav('pager', 'pageNavPosition');
+                    pager.showPage(1);
+                    //--></script>
 
-                    
+
                     </br>
                     </br>
                     <a href="#" class="redbtn">Exportar a PDF</a> </br> 
@@ -269,6 +297,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
         </div>
-                            <%}%>
+        <%}%>
     </body>
 </html>
