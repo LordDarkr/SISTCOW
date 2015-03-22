@@ -47,7 +47,7 @@ public class FiltrosMulticriterio extends HttpServlet {
             String Apellido = request.getParameter("Apellido");
             
             usuarios = (ArrayList<UsuariosDTO>) uDAO.filtroUsuarios(CC, Nombre, Apellido);
-            misession.setAtribute("arreglo",odjeto);
+          //  misession.setAtribute("arreglo",odjeto);
             response.sendRedirect("AdminUsers.jsp");
         }
     }

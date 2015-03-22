@@ -37,17 +37,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             if (misesion.getAttribute("admLogueado") == null) {
                 response.sendRedirect("login.jsp?msg= Debe iniciar sesion para acceder");
+                
                 UsuariosDTO pr = new UsuariosDTO();
                 pr = (UsuariosDTO) misesion.getAttribute("admLogueado");
 
             } else {
+                UsuariosDTO pr = new UsuariosDTO();
                 misesion.removeAttribute("logueado");
                 misesion.invalidate();
                  response.sendRedirect("Index.html?msg= Sesion cerrada");
-            
-            
-            
-                
         %>
         <div class="header-top">
             <div class="wrap"> 
@@ -63,10 +61,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="clear"></div>
                 </div>
                 <div class="cssmenu">
-                    <ul>
-                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
-                        <li><a href="Login?action=admLogueado">Cerrar Sesi&oacute;n</a></li>
-                    </ul>
+                    
+                        <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%= pr.getApellidos()%></a></li> |
+                        <li><a href="Login?action=admLogueado">Cerrar Sesi&oacute;n</a> </li>
+                    
                 </div>
                 <div class="clear"></div>
             </div>
