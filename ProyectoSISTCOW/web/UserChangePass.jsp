@@ -28,6 +28,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="web/js/jquery.easydropdown.js"></script>		
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
+    <script>
+function comprobarClave(){
+   var c1 = document.newpass.newpassword1.value;
+   var c2 = document.newpass.newpassword2.value;
+
+    if (c1 != c2){
+       
+    alert("Las contraseñas no coinciden");
+    return false;
+    }
+}
+</script> 
 </head>
 <body>
      <%
@@ -105,17 +117,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <center> <h3 class="m_3"> </h3></center>
      <center>
      <div class="col_1_of_CHP span_1_of_CHP">
-     <form action="" method="post" name="login" id="login-form">
+     <form action="" method="post" name="newpass" id="login-form">
 						  <fieldset class="input">
 						   
                                                       <label for="Actual_Pass">Contrase&ntilde;a Actual</label>
- <input id="Actual_Pass" type="password" name="Actual_Pass" class="inputbox" size="18" autocomplete="off">
+ <input id="Actual_Pass" type="password" name="Actual_Pass" class="inputbox" size="18" autocomplete="off"REQUIRED>
 						    </p>
  <label for="New Pass1">Contrase&ntilde;a Nueva </label>
- <input id="New Pass1" type="password" name="password" class="inputbox" size="18" autocomplete="off"REQUIRED>
+ <input id="New Pass1" type="password" name="newpassword1" class="inputbox" size="18" autocomplete="off"REQUIRED>
 						    </p>
  <label for="New Pass2">Repita la Nueva Contrase&ntilde;a</label>
- <input id="New Pass2" type="password" name="password" class="inputbox" size="18" autocomplete="off"REQUIRED>
+ <input id="New Pass2" type="password" name="newpassword2" class="inputbox" size="18" autocomplete="off"REQUIRED>
 						    </p>
 	<div class="remember">
 	 <p id="login-form-remember">

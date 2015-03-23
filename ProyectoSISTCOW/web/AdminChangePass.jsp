@@ -29,6 +29,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             });</script>
         <script src="web/js/jquery.easydropdown.js"></script>
     <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
+    <script>
+function comprobarClave(){
+   var c1 = document.login.newpass1.value;
+   var c2 = document.login.newpass2.value;
+
+    if (c1 != c2){
+       
+    alert("Las contraseñas no coinciden");
+    return false;
+    }
+}
+</script> 
 </head>
 <body>
     <%
