@@ -179,6 +179,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <td><%=i.getTipoCortina()%></td>
                                     <td><%=i.getTipoTela()%></td>
                                     <td><%=i.getColor()%></td>
+                                    <td><a href="AdminEditInventory.jsp"><img src="web/images/configuration.png" width="30" height="30"></a></td>
 
                                 </tr><!-- Table Row -->
 

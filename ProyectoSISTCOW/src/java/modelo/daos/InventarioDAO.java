@@ -65,4 +65,34 @@ public class InventarioDAO {
         return ListarInventario;
          
     }
- }
+ public String actualizari(ProductosDTO productos) {
+        try {
+
+            pstmt = cnn.prepareStatement("UPDATE inventario.`IdProducto` AS Codigo,\n" +
+"     productos.`NombreProducto` AS Nombre,\n" +
+"     inventario.`Cantidad` AS Cantidad,\n" +
+"     productos.`TipoCortina` AS `Tipo de Cortina`,\n" +
+"     productos.`TipoTela` AS `Tipo de Tela`,\n" +
+"     productos.`Color` AS Color,\n" +
+"     inventario.`fechaIngreso` AS `Fecha de Ingreso`\n" +
+"     FROM\n" +
+"     `productos` productos INNER JOIN `inventario` inventario ON productos.`IdProducto` = inventario.`IdProducto` WHERE IdProducto=?");
+            pstmt.setString(1, usuarios.getNombres());
+            pstmt.setString(2, usuarios.getApellidos());
+            pstmt.setString(3, usuarios.getCorreoElectronico());
+            pstmt.setLong(4, usuarios.getCC());
+
+            per = pstmt.executeUpdate();
+            if (per > 0) {
+                msgSalida = "Has Actualizado(" + per + ") Datos";
+            } else {
+                msgSalida = "No se pudieron Actualizar lo datos";
+            }
+        } catch (SQLException ex) {
+            msgSalida = "Error al ejecutar la operación : " + ex.getSQLState() + " " + ex.getMessage();
+
+        }
+        return msgSalida;
+
+    }
+}

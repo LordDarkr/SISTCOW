@@ -32,6 +32,10 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>Controlador.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditInventory</servlet-name>
+        <servlet-class>Controlador.EditInventory</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
@@ -76,9 +80,11 @@
         <servlet-name>Register</servlet-name>
         <url-pattern>/Register</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditInventory</servlet-name>
+        <url-pattern>/EditInventory</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            260
-        </session-timeout>
+        <session-timeout>500</session-timeout>
     </session-config>
 </web-app>
