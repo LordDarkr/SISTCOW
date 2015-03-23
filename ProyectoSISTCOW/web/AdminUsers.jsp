@@ -134,7 +134,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 </br>
                 <center>
-                    <h3 class="m_3">Administrar Usuarios</h3></center>
+                    <h3 class="m_3">Administrar Empleados</h3></center>
                 </br>
 
                 <center>
@@ -192,6 +192,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <th> <strong>Tipo-Usuario</strong> </th> 
                                     <th> <strong>Eliminar</strong> </th> 
                                     <th> <strong>Modificar</strong></th>
+                                    <th> <strong>Agregar Empleado</strong></th>
+                                    
 
                                 </tr>
                             </thead>
@@ -210,8 +212,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <td><%=u.getCorreoElectronico()%></td> 
                                     <td><%=u.getTipoUsuario()%></td>
                                     <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
-                                    <td><a href="AdminEditEmployee.jsp?idcli=<%=u.getCC()%>&&nm=<%=u.getNombres()%>&&ap=<%=u.getApellidos()%>&&cor=<%=u.getCorreoElectronico()%>">Edit</a></td>
+                                    <td><a href="AdminEditEmployee.jsp?idcli=<%=u.getCC()%>&&nm=<%=u.getNombres()%>&&ap=<%=u.getApellidos()%>&&cor=<%=u.getCorreoElectronico()%>"><img src="web/images/Edit.png" width="30" height="30"></a></td>
+                                    <td><a href="AGREGAREMPLEADO"><img src="web/images/add.png" width="30" height="30"></a></td>
                                 </tr>
+                                
                             <div id="modalcr1" class="modalmask">
                                 <div class="modalbox movedown">
                                     <a href="#close" title="Close" class="close">X</a>

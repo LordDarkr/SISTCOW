@@ -23,7 +23,7 @@
             HttpSession misesion = request.getSession(false);
 
             if (misesion.getAttribute("admLogueado") == null) {
-                response.sendRedirect("login.jsp?msg= redireccion desde logout");
+                response.sendRedirect("login.jsp?msg= Sesion cerrada");
 
             } else {
                 misesion.removeAttribute("admLogueado");
