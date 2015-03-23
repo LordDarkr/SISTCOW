@@ -28,6 +28,10 @@
         <servlet-name>FiltrosMulticriterio</servlet-name>
         <servlet-class>Controlador.FiltrosMulticriterio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>Controlador.Register</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>FiltrosMulticriterio</servlet-name>
         <url-pattern>/FiltrosMulticriterio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

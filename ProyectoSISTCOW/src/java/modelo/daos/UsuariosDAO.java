@@ -298,6 +298,23 @@ public class UsuariosDAO {
         }
         return y;
     }
+     //Metodo para consultar si un email y contraseñan pertenecen a una cuenta registrada
+    public boolean isAcountExists(String email, String password) throws SQLException{
+        String sql = "SELECT * FROM usuarios WHERE correoElectronico='"+email+"' AND Clave='"+password+"'";
+        PreparedStatement ps = cnn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        return rs.next();
+    }
+    
+    //Metodo para consultar si el email recibido ya esta registrado
+    public boolean isEmailRegistered(String email) throws SQLException{
+        String sql = "SELECT * FROM usuarios WHERE correoElectronico='"+email+"'";
+        PreparedStatement ps = cnn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+ 
+        return rs.next();
+    }
 
     public List<UsuariosDTO> filtroUsuarios(String CC, String Nombres, String Apellidos) throws SQLException {
         ArrayList<UsuariosDTO> filtroUsuarios = new ArrayList();
