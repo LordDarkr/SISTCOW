@@ -19,6 +19,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script>$(document).ready(function () {
         $(".megamenu").megamenu();
     });</script>
+        <script>
+function comprobarClave(){
+   var c1 = document.reg.pass1.value;
+   var c2 = document.reg.pass2.value;
+
+    if (c1 != c2){
+       
+    alert("Las contraseñas no coinciden");
+    return false;
+    }
+}
+</script> 
         <script src="web/js/jquery.easydropdown.js"></script>
     </head>
     <body> 
@@ -71,34 +83,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="register_account">
         <div class="wrap">
             <h4 class="title">Crea una cuenta</h4>
-            <form action="" method="post">
+            <form action="Register" method="post" name="reg" onsubmit="return comprobarClave()">
                 <div class="col_1_of_2 span_1_of_2">
-                    <label> Nombre</label>
-                    <div><input type="text" title="Introduzca su Nombre" name="Nombre"value="" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <label> Cédula de ciudadanía</label>
+                    <div><input type="text" title="Introduzca su Cedula" name="cc"value="" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                      this.value = '';
                                                  }"required></div>
-                    <label> Apellido</label>
-                    <div><input type="text" title="Introduzca su Apellido" value="" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <!--Este campo es tipo hidden para tomar el tipo de usuario-->
+                    <div><input type="hidden" name="tipo" value="Cliente"></div>
+                    <!--El campo se crea pero nunca es visible para el usuario-->
+                    <label> Nombres</label>
+                    <div><input type="text" title="Introduzca su Nombre" name="nombres"value="" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                     this.value = '';
+                                                 }"required></div>
+                    <label> Apellidos</label>
+                    <div><input type="text" title="Introduzca su Apellido" value="" name ="apellidos" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                    this.value = '';
+                                                }"required></div>
+                    <label> Teléfono</label>
+                    <div><input type="text" title="Telefono" value="" name ="telefono" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                    this.value = '';
+                                                }"required></div>
+                    <label> Dirección</label>
+                    <div><input type="text" title="Dirección" value="" name ="direccion" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                     this.value = '';
                                                 }"required></div>
                     <label> E-Mail</label>
-                    <div><input type="text" title="Introduzca su Correo Electronico" value="" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <div><input type="text" title="Introduzca su Correo Electronico" name="mcorreo" value="" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                     this.value = '';
                                                 }"required></div>
                     <div>
                         </br> 
                         <label> Contrase&ntilde;a</label>
-                        <input type="password" value="" title="Introduzca su contraseña" onfocus="this.value = '';" onblur="if (this.value == '') {
+                        <input type="password" value="" name="pass1" title="Introduzca su contraseña" onfocus="this.value = '';" onblur="if (this.value == '') {
                                     this.value = '';
                                 }"required>
                         <label>Repita su Contrase&ntilde;a</label>
-                        <input type="password" value="" title="Rectifique si contraseña" onfocus="this.value = '';" onblur="if (this.value == '') {
+                        <input type="password" value="" name="pass2" title="Rectifique si contraseña" onfocus="this.value = '';" onblur="if (this.value == '') {
                                     this.value = '';
                                 }"required>
                         </br> 
                         </br> 
 
-                        <button class="grey">Registrarse</button>
+                        <button class="grey" name="resgistrausuario">Registrarse</button>
 
                     </div>
                 </div>

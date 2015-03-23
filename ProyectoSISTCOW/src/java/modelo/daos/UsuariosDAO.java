@@ -94,10 +94,10 @@ public class UsuariosDAO {
         try {
 
             int resultado = 0;
-            pstmt = cnn.prepareStatement("INSERT INTO usuarios VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+            pstmt = cnn.prepareStatement("INSERT INTO usuarios VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
             pstmt.setLong(1, newUsuario.getCC());
-            pstmt.setString(2, newUsuario.getNombres());
-            pstmt.setString(3, newUsuario.getTipoUsuario());
+            pstmt.setString(2, newUsuario.getTipoUsuario());
+            pstmt.setString(3, newUsuario.getNombres());
             pstmt.setString(4, newUsuario.getApellidos());
             pstmt.setString(5, newUsuario.getTelefono());
             pstmt.setString(6, newUsuario.getDireccion());
