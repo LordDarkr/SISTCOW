@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                              
 			<ul>
                         <li><a href="#">Bienvenido, <%=pr.getNombres()%> <%=pr.getApellidos()%></a></li> |
-                        <li><a href="logout.jsp">Cerrar Sesi&oacute;n</a></li>
+                        <li><a href="logout2.jsp">Cerrar Sesi&oacute;n</a></li>
                         </ul>
 			</div>
 			<div class="clear"></div>

@@ -30,29 +30,18 @@ public class Login extends HttpServlet {
             uDTO = uDAO.validarUsuario(request.getParameter("email"), request.getParameter("password"));
             if (uDTO!= null) {
                 HttpSession miSesion = request.getSession(true);
-                miSesion.setAttribute("admLogueado", uDTO);
+                
                 if (uDTO.getTipoUsuario().equals("Administrador") || uDTO.getTipoUsuario().equals("Empleado")){
+                   miSesion.setAttribute("admLogueado", uDTO);
                    response.sendRedirect("AdminIndex.jsp");
                 }
                 else if (uDTO.getTipoUsuario().equals("Cliente")){
-                miSesion.setAttribute("clientLogueado", uDTO);
+                   miSesion.setAttribute("clientLogueado", uDTO);
                    response.sendRedirect("UserQuotes.jsp"); 
                 }
             }else if (uDTO == null) {
                 response.sendRedirect("login.jsp?msg=Usuario No existe!!");
                 
-            }else if (request.getParameter("action") != null) {
-            HttpSession sesion = request.getSession(false);
-            sesion.removeAttribute("admlogueado");
-            sesion.invalidate();
-            response.sendRedirect("Index.html");
-
-        }
-            
-{
-
-               
-
             }
         }
 

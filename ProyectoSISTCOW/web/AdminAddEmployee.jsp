@@ -30,6 +30,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script>$(document).ready(function () {
                 $(".megamenu").megamenu();
             });</script>
+        <script>
+            function comprobarClave() {
+                var c1 = document.regE.pass1.value;
+                var c2 = document.regE.pass2.value;
+
+                if (c1 != c2) {
+
+                    alert("Las contraseñas no coinciden");
+                    return false;
+                }
+            }
+        </script> 
         <script src="web/js/jquery.easydropdown.js"></script>
 
         <script type="text/javascript" src="web/js/mbjsmbmcp.js"></script>
@@ -118,30 +130,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <form action="RegisterEmployee" method="post" name="regE" onsubmit="return comprobarClave()"><fieldset class="input">
 
                                     <label for="CC">Cédula de ciudadanía</label>
-                                    <input  type="number" name="cc" class="inputbox" size="18" REQUIRED>
+                                    <input  type="text" name="cc" class="inputbox" size="18" REQUIRED>
                                     </p>
                                     <!--Este campo es tipo hidden para tomar el tipo de usuario-->
                                     <div><input type="hidden" name="tipo" value="Empleado"></div>
                                     <!--El campo se crea pero nunca es visible para el usuario-->
-                                    <label for="nombre">nombre</label>
+                                    <label for="nom">Nombres</label>
                                     <input type="text" name="nom"  class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="apellido">Apellido</label>
+                                    <label for="ape">Apellidos</label>
                                     <input type="text" name="ape" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="telefono">Teléfono</label>
+                                    <label for="tel">Teléfono</label>
                                     <input type="number" name="tel" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="direccion">Dirección</label>
+                                    <label for="direc">Dirección</label>
                                     <input type="text" name="direc" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="email">E-Mail</label>
+                                    <label for="mail">E-Mail</label>
                                     <input type="email" name="mail" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="email">Contraseña</label>
+                                    <label for="pass1">Contraseña</label>
                                     <input type="password" name="pass1" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="email">Repita la Contraseña</label>
+                                    <label for="pass2">Repita la Contraseña</label>
                                     <input type="password" name="pass2" class="inputbox" size="18" REQUIRED>
                                     </p>
 
