@@ -86,7 +86,7 @@ function comprobarClave(){
             <form action="Register" method="post" name="reg" onsubmit="return comprobarClave()">
                 <div class="col_1_of_2 span_1_of_2">
                     <label> Cédula de ciudadanía</label>
-                    <div><input type="text" title="Introduzca su Cedula" name="cc"value="" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <div><input type="text" pattern="[0-9]" title="Introduzca su Cedula" name="cc"value="" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                      this.value = '';
                                                  }"required></div>
                     <!--Este campo es tipo hidden para tomar el tipo de usuario-->

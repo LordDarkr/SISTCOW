@@ -1,4 +1,5 @@
 
+<%@page import="Dtos.UsuariosDTO"%>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -102,54 +103,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <center>
                         <div class="col_1_of_CHP span_1_of_CHP">
 
-                            <form action="EditUser?idcl=<%=request.getParameter("idcli")%>" method="post" name="edituser" id="login-form">	  <fieldset class="input">
+                            <form action="EditInventory?idprod=<%=request.getParameter("idp")%>" method="post" name="editinv" id="login-form">	  <fieldset class="input">
 
-                                    <label for="Codigo">Codigo</label>
-                                    <input  type="Number" name="cod" class="inputbox" size="18" value="<%=request.getParameter("nm")%>" REQUIRED>
+                                    <label for="codprod">Codigo</label>
+                                    <input  type="text" name="codprod" class="inputbox" size="18" value="<%=request.getParameter("idp")%>" disabled="true">
                                     </p>
-                                    <label for="Nombre">Nombre </label>
-                                    <input type="text" name="nombre" value="<%=request.getParameter("ap")%>" class="inputbox" size="18" REQUIRED>
+                                    <label for="nompro">Nombre </label>
+                                    <input type="text" name="nompro" value="<%=request.getParameter("nomp")%>" class="inputbox" size="18" disabled="true">
                                     </p>
                                     <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" value="<%=request.getParameter("cor")%>" class="inputbox" size="18" REQUIRED>
+                                    <input type="text" name="cantidad" value="<%=request.getParameter("canp")%>" class="inputbox" size="18" REQUIRED>
                                     </p>
-                                    <label for="TP">Tipo de Cortina</label>
+                                    <label for="tc">Tipo de Cortina</label>
                                     </br>
-                                    <select name="tc" style="width: 200px;" >
-                                        <option value="Romana">Romana</option>
-                                        <option value="Japonesa">Japonesa</option>
-                                        <option value="Persiana">Persiana</option>
-                                        <option value="Lisa">Lisa</option>
+                                    <select name="tc" style="width: 200px;" disabled="true">
+                                        <option value=""><%=request.getParameter("tco")%></option>
+                                        
                                     </select>
                                     </p>
-                                    <label for="TT">Tipo de Tela</label>
+                                    <label for="tt">Tipo de Tela</label>
                                     </br>
-                                    <select name="tp" style="width: 200px;">   
-                                        <option value="Seda">Seda</option>
-                                        <option value="Lino">Lino</option>
-                                        <option value="Sintética">Sintética</option>
-                                        <option value="Madera">Madera</option>
-                                        <option value="PVC">PVC</option>
+                                    <select name="tt" style="width: 200px;" disabled="true">   
+                                        <option value=""><%=request.getParameter("tte")%></option>
+                                        
                                     </select>
                                     </p>
                                     <label for="color">Color</label>
                                     </br>
-                                    <select name="color" style="width: 200px;">  
-                                        <option value="Blanco">Blanco</option>
-                                        <option value="Morado">Morado</option>
-                                        <option value="Azul">Azul</option>
-                                        <option value="Rojo">Rojo</option>
-                                        <option value="Gris">Gris</option>
-                                        <option value="Beige">Beige</option>
-                                        <option value="Cafe">Cafe</option>
-                                        <option value="Negro">Negro</option>
-                                        <option value="Verde">Verde</option>
+                                    <select name="color" style="width: 200px;" disabled="true">  
+                                        <option value=""><%=request.getParameter("col")%></option>
+                                        
                                     </select>
                                     </p>
                                     <div class="remember">
                                         <p id="login-form-remember">
                                         </p>
-                                        <center> <input type="submit" name="editI"  class="button" value="Modificar"> </center>
+                                        <center> <input type="submit" name="editI" class="button" value="Modificar"> </center>
                                         <div class="clear"></div>
                                     </div>
                                 </fieldset>

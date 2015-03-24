@@ -20,7 +20,7 @@ import utilidades.Conectar;
  */
 public class InventarioDAO {
     
-      private Connection cnn = null;
+    private Connection cnn = null;
     private PreparedStatement pstmt;
     ResultSet rs = null;
     String msgSalida;
@@ -65,23 +65,12 @@ public class InventarioDAO {
         return ListarInventario;
          
     }
- public String actualizari(ProductosDTO productos) {
+ public String actualizarInventario(int cant, int idprod) {
         try {
 
-            pstmt = cnn.prepareStatement("UPDATE inventario.`IdProducto` AS Codigo,\n" +
-"     productos.`NombreProducto` AS Nombre,\n" +
-"     inventario.`Cantidad` AS Cantidad,\n" +
-"     productos.`TipoCortina` AS `Tipo de Cortina`,\n" +
-"     productos.`TipoTela` AS `Tipo de Tela`,\n" +
-"     productos.`Color` AS Color,\n" +
-"     inventario.`fechaIngreso` AS `Fecha de Ingreso`\n" +
-"     FROM\n" +
-"     `productos` productos INNER JOIN `inventario` inventario ON productos.`IdProducto` = inventario.`IdProducto` WHERE IdProducto=?");
-            pstmt.setString(1, usuarios.getNombres());
-            pstmt.setString(2, usuarios.getApellidos());
-            pstmt.setString(3, usuarios.getCorreoElectronico());
-            pstmt.setLong(4, usuarios.getCC());
-
+            pstmt = cnn.prepareStatement("UPDATE inventario set cantidad=?, fechaIngreso=curdate() where IdProducto=?");
+            pstmt.setInt(1, cant);
+            pstmt.setInt(2, idprod);
             per = pstmt.executeUpdate();
             if (per > 0) {
                 msgSalida = "Has Actualizado(" + per + ") Datos";

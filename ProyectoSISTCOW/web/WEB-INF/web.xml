@@ -36,6 +36,10 @@
         <servlet-name>EditInventory</servlet-name>
         <servlet-class>Controlador.EditInventory</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterEmployee</servlet-name>
+        <servlet-class>Controlador.RegisterEmployee</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>EditInventory</servlet-name>
         <url-pattern>/EditInventory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterEmployee</servlet-name>
+        <url-pattern>/RegisterEmployee</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>500</session-timeout>

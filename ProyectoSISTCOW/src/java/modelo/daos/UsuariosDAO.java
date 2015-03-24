@@ -230,17 +230,6 @@ public class UsuariosDAO {
             }
         } catch (SQLException ex) {
             msgSalida = "Error al ejecutar : " + ex.getSQLState() + " " + ex.getMessage();
-//        } finally {
-//            try {
-//                if (pstmt != null) {
-//                    pstmt.close();
-//                }
-//                if (cnn != null) {
-//                    cnn.close();
-//                }
-//            } catch (SQLException ex) {
-//                msgSalida = "error al cerrar la conexion " + ex.getMessage();
-//            }
         }
 
         return msgSalida;
@@ -354,6 +343,43 @@ public class UsuariosDAO {
 
         }
         return filtroUsuarios;
+    }
+    
+    public String crearEmpleado(UsuariosDTO newEmp) throws SQLException {
+        String salida = "";
+        try {
+
+            int resultado = 0;
+            pstmt = cnn.prepareStatement("INSERT INTO usuarios VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+            pstmt.setLong(1, newEmp.getCC());
+            pstmt.setString(2, newEmp.getTipoUsuario());
+            pstmt.setString(3, newEmp.getNombres());
+            pstmt.setString(4, newEmp.getApellidos());
+            pstmt.setString(5, newEmp.getTelefono());
+            pstmt.setString(6, newEmp.getDireccion());
+            pstmt.setString(7, newEmp.getCorreoElectronico());
+            pstmt.setString(8, newEmp.getClave());
+
+            resultado = pstmt.executeUpdate();
+
+            if (resultado != 0) {
+                salida = "Has creado tu usuario exitosamente.";
+            } else {
+                // salida = "Ha ocurrido un problema al crear el profesor. Contacte al administrador";
+
+            }
+        } catch (SQLException sqle) {
+            salida = "Ocurrió la siguiente exception : " + sqle.getMessage();
+        } finally {
+            try {
+                pstmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex); // se deja por defecto en este caso
+            }
+        }
+
+        return salida;
+
     }
     
 }

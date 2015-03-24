@@ -1,31 +1,46 @@
 package utilidades;
 
-import Dtos.UsuariosDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import modelo.daos.UsuariosDAO;
+
+
 
 public class VerificaConexion {
     
-    public static void main(String[] args) {
-        Connection con = Conectar.getInstance();
-        PreparedStatement stmt;
-        ResultSet rs;        
+   public static void main(String[] args) {
+            Connection con= null;
+            PreparedStatement stmt ;
+	    ResultSet rs ;       
         
-        if (con != null) {
-            System.out.println("Conectado");
-        }
-        try{
-        UsuariosDAO d = new UsuariosDAO();
-        ArrayList<UsuariosDTO> listarUsuarios = (ArrayList<UsuariosDTO>) d.listarUsuarios();
-        for(UsuariosDTO u: listarUsuarios){
-            System.out.println(u);
-        }
-        }catch (Exception ex) {
+            
+         
+        try {
+            con= Conectar.getInstance();    
+               // La Query
+	        stmt = con.prepareStatement("SELECT nombre, user FROM profesores");
+	        rs = stmt.executeQuery();
+	   
+	        // Recorremos el resultado
+                //Encabezad de la tablas a mostrar
+                System.out.println ("Nombre "+" User");
+                //mientras el apuntador encuentre un elemento en el arreglo (resultset) haga
+                //trae cada campo (nombre de la columna) de la consulta
+	        while (rs.next())                  
+	          System.out.println (rs.getString("nombre")+"     "+rs.getString("user"));
+
+	      } catch (SQLException sqle) { 
+	           System.out.println("Error en la ejecución sqle:" 
+	             + sqle.getErrorCode() + " " + sqle.getMessage());    
+	      } catch (Exception e) { 
+	           System.out.println("Error en la ejecución e:" 
+	             +  " " + e.getMessage());    
+	      }finally{
             
         }
-    }
+              }
 }
+
+    
+

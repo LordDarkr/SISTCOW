@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.daos.UsuariosDAO;
 
 /**
@@ -33,10 +34,13 @@ public class InactivateAccount extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            if(request.getParameter("desactivar")!= null){
+            if(request.getParameter("idc")!= null){
                UsuariosDAO ud = new UsuariosDAO();
-               ud.eliminar(Long.parseLong(request.getParameter(null)));
-                response.sendRedirect("login.jsp?mens=Cuenta Desactivada");
+               ud.eliminar(Long.parseLong(request.getParameter("idc")));
+               HttpSession misesion = request.getSession(false);
+               misesion.removeAttribute("admLogueado");
+               misesion.invalidate();
+               response.sendRedirect("login.jsp?mens=Cuenta Desactivada");
             }
             
         }

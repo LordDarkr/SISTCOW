@@ -112,7 +112,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <br/>
 <br/>
      
-<a href="InactivateAccount" class="redbtn" >Desactivar Cuenta</a>
+<a href="InactivateAccount?idc=<%=pr.getCC()%>" class="redbtn" >Desactivar Cuenta</a>
 <br/>
     </div>                         
 

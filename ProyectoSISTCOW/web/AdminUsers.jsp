@@ -1,6 +1,7 @@
+<%@page import="modelo.daos.UsuariosDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Dtos.UsuariosDTO"%>
-<%@page import="modelo.daos.UsuariosDAO"%>
+
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -213,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <td><%=u.getTipoUsuario()%></td>
                                     <td><a href="DeleteUser?ideliminar=<%=u.getCC()%>"><img src="web/images/delete.png" width="30" height="30"></a></td>
                                     <td><a href="AdminEditEmployee.jsp?idcli=<%=u.getCC()%>&&nm=<%=u.getNombres()%>&&ap=<%=u.getApellidos()%>&&cor=<%=u.getCorreoElectronico()%>"><img src="web/images/Edit.png" width="30" height="30"></a></td>
-                                    <td><a href="AGREGAREMPLEADO"><img src="web/images/add.png" width="30" height="30"></a></td>
+                                    <td><a href="AdminAddEmployee.jsp"><img src="web/images/add.png" width="30" height="30"></a></td>
                                 </tr>
                                 
                             <div id="modalcr1" class="modalmask">

@@ -5,21 +5,24 @@
  */
 package Controlador;
 
-import Dtos.ProductosDTO;
-
+import Dtos.UsuariosDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.daos.InventarioDAO;
-import modelo.daos.ProductosDAO;
+import modelo.daos.UsuariosDAO;
 
 /**
  *
- * @author House EP
+ * @author Darkr232
  */
+public class RegisterEmployee extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -29,18 +32,28 @@ import modelo.daos.ProductosDAO;
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   public class EditInventory extends HttpServlet {
-
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-                InventarioDAO ida = new InventarioDAO();
-            if (request.getParameter("idp")!= null){
-                String resultado = ida.actualizarInventario(Integer.parseInt(request.getParameter("cantidad")), Integer.parseInt(request.getParameter("idp")));
-                response.sendRedirect("AdminInvent.jsp?msg= "+resultado);
+            /* TODO output your page here. You may use following sample code. */
+            
+            if (request.getParameter("edit")!= null){
+                UsuariosDTO nEmp = new UsuariosDTO();
+                UsuariosDAO cEmp = new UsuariosDAO();
+                nEmp.setCC(Long.parseLong(request.getParameter("cc")));
+                nEmp.setTipoUsuario("Empleado");
+                nEmp.setNombres(request.getParameter("nom"));
+                nEmp.setApellidos(request.getParameter("ape"));
+                nEmp.setTelefono(request.getParameter("tel"));
+                nEmp.setDireccion(request.getParameter("direc"));
+                nEmp.setCorreoElectronico(request.getParameter("mail"));
+                nEmp.setClave(request.getParameter("pass1"));
+                String res = cEmp.crearEmpleado(nEmp);
+                response.sendRedirect("AdminUsers.jsp?msg= "+res);
+                
             }
-
+            
         }
     }
 
@@ -56,7 +69,11 @@ import modelo.daos.ProductosDAO;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterEmployee.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -70,7 +87,11 @@ import modelo.daos.ProductosDAO;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterEmployee.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

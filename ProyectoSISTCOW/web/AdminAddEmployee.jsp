@@ -130,11 +130,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <form action="RegisterEmployee" method="post" name="regE" onsubmit="return comprobarClave()"><fieldset class="input">
 
                                     <label for="CC">Cédula de ciudadanía</label>
-                                    <input  type="text" name="cc" class="inputbox" size="18" REQUIRED>
+                                    <input  type="text" name="cc" class="inputbox" maxlength="10" size="18" REQUIRED>
                                     </p>
-                                    <!--Este campo es tipo hidden para tomar el tipo de usuario-->
-                                    <div><input type="hidden" name="tipo" value="Empleado"></div>
-                                    <!--El campo se crea pero nunca es visible para el usuario-->
                                     <label for="nom">Nombres</label>
                                     <input type="text" name="nom"  class="inputbox" size="18" REQUIRED>
                                     </p>
@@ -142,7 +139,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <input type="text" name="ape" class="inputbox" size="18" REQUIRED>
                                     </p>
                                     <label for="tel">Teléfono</label>
-                                    <input type="number" name="tel" class="inputbox" size="18" REQUIRED>
+                                    <input type="text" name="tel" class="inputbox" size="18" REQUIRED>
                                     </p>
                                     <label for="direc">Dirección</label>
                                     <input type="text" name="direc" class="inputbox" size="18" REQUIRED>
