@@ -68,7 +68,7 @@ public class JavaMail {
 
             Transport t = session.getTransport("smtp");
 
-            t.connect("lpfl47", "hitman27");
+            t.connect("usuario sin @", "pass");
 
             t.sendMessage(message, message.getAllRecipients());
 
